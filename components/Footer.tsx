@@ -69,6 +69,7 @@ export default function Footer() {
                 { href: "/", label: "Home" },
                 { href: "/servizi", label: "Servizi" },
                 { href: "/contatti", label: "Contatti" },
+                { href: "/faq", label: "FAQ" },
                 { href: "/contatti", label: "Richiedi preventivo" },
               ].map((l) => (
                 <li key={l.label}>

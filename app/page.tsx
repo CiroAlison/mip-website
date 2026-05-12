@@ -135,7 +135,7 @@ export default function HomePage() {
       {/* ── CHI SIAMO ── */}
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-10 sm:gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -176,9 +176,10 @@ export default function HomePage() {
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              className="relative rounded-3xl overflow-hidden shadow-xl min-h-[320px] sm:min-h-[400px]"
+              className="relative rounded-3xl overflow-hidden shadow-xl"
+              style={{ aspectRatio: "4/3" }}
             >
               <Image
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
@@ -187,9 +188,7 @@ export default function HomePage() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              {/* gradiente scuro in basso per leggere le stat */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#003d7a]/85 via-[#003d7a]/20 to-transparent" />
-              {/* stat box in basso */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#003d7a]/85 via-[#003d7a]/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 divide-x divide-white/20">
                 {[
                   { value: "25+", label: "Anni" },
@@ -197,8 +196,8 @@ export default function HomePage() {
                   { value: "11", label: "Servizi" },
                   { value: "100%", label: "Qualità" },
                 ].map((stat) => (
-                  <div key={stat.label} className="py-4 text-center text-white">
-                    <p className="text-xl sm:text-2xl font-extrabold leading-none" style={{ fontFamily: "var(--font-poppins)" }}>
+                  <div key={stat.label} className="py-3 sm:py-4 text-center text-white">
+                    <p className="text-lg sm:text-2xl font-extrabold leading-none" style={{ fontFamily: "var(--font-poppins)" }}>
                       {stat.value}
                     </p>
                     <p className="text-[10px] sm:text-xs text-blue-200 mt-1 font-medium">{stat.label}</p>

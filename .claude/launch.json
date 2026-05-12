@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "mip-dev",
+      "name": "mip-website",
+      "autoPort": true,
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 3000,
       "env": {
         "PATH": "/private/tmp/node-v20.11.0-darwin-x64/bin:/usr/bin:/bin"
       }
