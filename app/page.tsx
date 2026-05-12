@@ -404,7 +404,7 @@ export default function HomePage() {
                 Leggi le recensioni
               </a>
               <a
-                href="https://search.google.com/local/writereview?placeid=ChIJ97g2HrWQyRIRQYSt06sIvwQ"
+                href="https://www.google.com/search?q=MIP+Moderna+Impresa+di+Pulizia+Napoli"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm border-2 hover:scale-105 active:scale-95 transition-all duration-200"
