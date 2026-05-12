@@ -54,6 +54,18 @@ export default function ContattiPage() {
         throw new Error(data.error || "Errore durante l'invio");
       }
       setStatus("success");
+
+      // Apri WhatsApp con il riepilogo della richiesta
+      const testo =
+        `🧹 *Nuova richiesta preventivo M.I.P.*\n\n` +
+        `👤 *Nome:* ${form.nome}\n` +
+        `📞 *Telefono:* ${form.telefono}\n` +
+        `📧 *Email:* ${form.email}\n` +
+        `🔧 *Servizio:* ${form.servizio}\n` +
+        (form.messaggio ? `💬 *Messaggio:* ${form.messaggio}\n` : "");
+      const url = `https://wa.me/393347064060?text=${encodeURIComponent(testo)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+
       setForm({ nome: "", telefono: "", email: "", servizio: "", messaggio: "" });
     } catch (err: unknown) {
       setStatus("error");
@@ -229,7 +241,7 @@ export default function ContattiPage() {
                     Richiesta inviata!
                   </h3>
                   <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
-                    Grazie per averci contattato. Ti risponderemo entro 24 ore all&apos;indirizzo email fornito.
+                    Richiesta salvata! Si è aperto WhatsApp con il riepilogo — invia il messaggio per ricevere risposta rapida.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
