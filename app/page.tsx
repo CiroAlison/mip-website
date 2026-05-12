@@ -294,6 +294,61 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── CLIENTI ── */}
+      <section className="py-14 sm:py-20 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+              Chi si fida di noi
+            </span>
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              I nostri clienti
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              "Schiavo & C. s.p.a.",
+              "Zucchetti",
+              "Genoa Sea Brokers",
+              "Sara Assicurazioni",
+              "Palumbo",
+              "HiSkill",
+              "Nettuno Solutions",
+              "AMESCI",
+              "Essematica",
+              "Eutile",
+              "TMF Group",
+              "Studio Scarano",
+              "Quick Parking",
+              "Si.Ge.A. Costruzioni",
+              "X Percorsi",
+              "SG Sicura Gestioni",
+            ].map((name, i) => (
+              <motion.div
+                key={name}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={fadeUp}
+                className="bg-white rounded-2xl px-4 py-5 sm:py-6 shadow-sm border border-gray-100 flex items-center justify-center text-center"
+              >
+                <span
+                  className="text-xs sm:text-sm font-semibold text-gray-600 leading-snug"
+                  style={{ fontFamily: "var(--font-poppins)" }}
+                >
+                  {name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA CENTRALE ── */}
       <section
         className="py-14 sm:py-20 text-white text-center"
