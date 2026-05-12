@@ -148,8 +148,13 @@ export default function ContattiPage() {
                       <Phone size={15} style={{ color: "#0055A4" }} />
                     </span>
                     <div>
-                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Telefono</p>
-                      <a href="tel:0813625750" className="text-sm font-semibold text-[#0055A4] hover:underline">
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Numero Verde</p>
+                      <a href="tel:800653110" className="text-sm font-semibold text-[#0055A4] hover:underline">
+                        800 65 31 10
+                      </a>
+                      <span className="ml-2 text-[10px] bg-green-100 text-green-700 font-semibold px-1.5 py-0.5 rounded-full">gratuito</span>
+                      <br />
+                      <a href="tel:0813625750" className="text-sm text-gray-500 hover:underline">
                         081 362 5750
                       </a>
                     </div>
@@ -189,11 +194,11 @@ export default function ContattiPage() {
                 {/* Quick action buttons on mobile */}
                 <div className="mt-5 grid grid-cols-2 gap-2 sm:hidden">
                   <a
-                    href="tel:0813625750"
+                    href="tel:800653110"
                     className="flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-bold text-white"
                     style={{ backgroundColor: "#0055A4" }}
                   >
-                    <Phone size={14} /> Chiama
+                    <Phone size={14} /> 800 65 31 10
                   </a>
                   <a
                     href="https://wa.me/393347064060"

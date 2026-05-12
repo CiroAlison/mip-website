@@ -408,10 +408,10 @@ export default function HomePage() {
               <ArrowRight size={18} />
             </Link>
             <a
-              href="tel:0813625750"
+              href="tel:800653110"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base border-2 border-white/50 hover:border-white hover:bg-white/10 active:scale-95 transition-all duration-200"
             >
-              081 362 5750
+              800 65 31 10 (gratuito)
             </a>
           </motion.div>
         </div>

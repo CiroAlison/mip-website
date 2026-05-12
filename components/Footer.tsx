@@ -37,9 +37,16 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={15} className="text-[#00AEEF] shrink-0" />
-                <a href="tel:0813625750" className="hover:text-white transition-colors">
-                  081 362 5750
-                </a>
+                <div>
+                  <a href="tel:800653110" className="hover:text-white transition-colors font-semibold text-green-400">
+                    800 65 31 10
+                  </a>
+                  <span className="ml-1.5 text-[10px] text-green-500">(gratuito)</span>
+                  <br />
+                  <a href="tel:0813625750" className="hover:text-white transition-colors text-xs text-gray-400">
+                    081 362 5750
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle size={15} className="text-[#00AEEF] shrink-0" />

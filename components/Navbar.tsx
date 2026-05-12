@@ -75,12 +75,12 @@ export default function Navbar() {
 
           {/* CTA tel desktop */}
           <a
-            href="tel:0813625750"
+            href="tel:800653110"
             className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: "#0055A4" }}
           >
             <Phone size={15} />
-            081 362 5750
+            800 65 31 10
           </a>
 
           {/* Hamburger — touch target 44×44 */}
@@ -115,12 +115,12 @@ export default function Navbar() {
 
             <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
               <a
-                href="tel:0813625750"
+                href="tel:800653110"
                 className="flex items-center justify-center gap-2 w-full min-h-[52px] px-4 rounded-xl text-base font-bold text-white"
                 style={{ backgroundColor: "#0055A4" }}
               >
                 <Phone size={18} />
-                081 362 5750
+                800 65 31 10 (gratuito)
               </a>
               <a
                 href="https://wa.me/393347064060"
