@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 const serviceOptions = [
@@ -173,6 +173,15 @@ export default function ContattiPage() {
                       >
                         334 706 4060
                       </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e6f0fa" }}>
+                      <Clock size={15} style={{ color: "#0055A4" }} />
+                    </span>
+                    <div>
+                      <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Orari</p>
+                      <p className="text-sm text-gray-700">Lun–Ven: 08:00 – 16:00</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">

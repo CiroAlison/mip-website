@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -60,6 +60,10 @@ export default function Footer() {
                   info@mipimpresadipulizie.it
                 </a>
               </li>
+              <li className="flex items-center gap-2">
+                <Clock size={15} className="text-[#00AEEF] shrink-0" />
+                <span>Lun–Ven: 08:00 – 16:00</span>
+              </li>
             </ul>
           </div>
 
@@ -75,9 +79,10 @@ export default function Footer() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/servizi", label: "Servizi" },
-                { href: "/contatti", label: "Contatti" },
                 { href: "/faq", label: "FAQ" },
+                { href: "/contatti", label: "Contatti" },
                 { href: "/contatti", label: "Richiedi preventivo" },
+                { href: "/privacy", label: "Privacy Policy" },
               ].map((l) => (
                 <li key={l.label}>
                   <Link href={l.href} className="hover:text-white transition-colors">
