@@ -1,65 +1,348 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import {
+  Building2,
+  Briefcase,
+  Home,
+  HardHat,
+  ChefHat,
+  Anchor,
+  ArrowUpDown,
+  Leaf,
+  ShieldCheck,
+  Bug,
+  Wind,
+  Star,
+  Clock,
+  MapPin,
+  Users,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+
+const featuredServices = [
+  { icon: Building2, label: "Pulizia Condomini", desc: "Scale, ascensori, cortili e parcheggi curati con professionalità." },
+  { icon: Briefcase, label: "Uffici & Ambienti di Lavoro", desc: "Ambienti puliti e sanificati per il massimo della produttività." },
+  { icon: Home, label: "Appartamenti & Case", desc: "Pulizia domestica accurata, ordinaria e straordinaria." },
+  { icon: ChefHat, label: "Cucine Industriali (HACCP)", desc: "Igienizzazione certificata per ristoranti e ambienti food." },
+  { icon: Anchor, label: "Yacht & Natanti", desc: "Pulizia professionale di barche, yacht e imbarcazioni." },
+  { icon: ShieldCheck, label: "Sanificazione Ambienti", desc: "Igienizzazione profonda con prodotti certificati." },
+];
+
+const reasons = [
+  { icon: Star, title: "25+ anni di esperienza", desc: "Decenni di know-how al servizio di privati, aziende e strutture." },
+  { icon: Users, title: "Team qualificato", desc: "Operatori formati, assicurati e sempre aggiornati sulle normative." },
+  { icon: Clock, title: "Puntualità garantita", desc: "Rispettiamo ogni accordo con precisione e affidabilità." },
+  { icon: MapPin, title: "Da Napoli a tutta Italia", desc: "Operiamo su tutto il territorio nazionale con la stessa qualità." },
+];
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+  }),
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* ── HERO ── */}
+      <section
+        className="relative min-h-[88vh] flex items-center justify-center text-white overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #003d7a 0%, #0055A4 55%, #00AEEF 100%)",
+        }}
+      >
+        {/* decorative circles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10 bg-white" />
+          <div className="absolute -bottom-24 -left-24 w-[350px] h-[350px] rounded-full opacity-10 bg-white" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-white/20 rounded-full px-4 py-1.5 mb-6">
+              Napoli · Italia
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-sm"
+            style={{ fontFamily: "var(--font-poppins)" }}
           >
-            Documentation
-          </a>
+            Pulizia professionale<br />
+            <span style={{ color: "#9de6ff" }}>che fa la differenza</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed"
+          >
+            Esperienza, professionalità e innovazione al servizio di condomini, uffici,
+            industrie, yacht e molto altro — da Napoli a tutta Italia.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link
+              href="/contatti"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
+              style={{ backgroundColor: "#00AEEF" }}
+            >
+              Richiedi Preventivo
+              <ArrowRight size={18} />
+            </Link>
+            <Link
+              href="/servizi"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white/15 border border-white/30 backdrop-blur-sm hover:bg-white/25 transition-all duration-200"
+            >
+              Scopri i Servizi
+            </Link>
+          </motion.div>
         </div>
-      </main>
-    </div>
+
+        {/* wave divider */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 sm:h-16">
+            <path d="M0 80L60 66.7C120 53 240 27 360 21.3C480 16 600 32 720 42.7C840 53 960 59 1080 53.3C1200 48 1320 32 1380 24L1440 16V80H0Z" fill="white" />
+          </svg>
+        </div>
+      </section>
+
+      {/* ── CHI SIAMO ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+                Chi siamo
+              </span>
+              <h2
+                className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] mb-6 leading-tight"
+                style={{ fontFamily: "var(--font-poppins)" }}
+              >
+                La pulizia è il nostro mestiere,<br />
+                <span className="text-[#0055A4]">la cura è la nostra passione</span>
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-5 text-base">
+                M.I.P. Moderna Impresa di Pulizia s.r.l. è un'azienda napoletana con una lunga tradizione nel settore
+                dei servizi di pulizia e igienizzazione. Fondata con l'obiettivo di offrire qualità superiore,
+                siamo cresciuti diventando un punto di riferimento per privati, condominii, aziende e strutture
+                ricettive su tutto il territorio nazionale.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Personale specializzato e continuamente formato",
+                  "Prodotti ecologici e certificati",
+                  "Interventi su misura per ogni esigenza",
+                  "Rispetto degli standard HACCP e sanitari",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-gray-700">
+                    <CheckCircle2 size={18} className="text-[#00AEEF] shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {[
+                { value: "25+", label: "Anni di esperienza" },
+                { value: "500+", label: "Clienti soddisfatti" },
+                { value: "11", label: "Servizi specializzati" },
+                { value: "100%", label: "Qualità garantita" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
+                >
+                  <p
+                    className="text-3xl font-extrabold mb-1"
+                    style={{ color: "#0055A4", fontFamily: "var(--font-poppins)" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-gray-500 font-medium">{stat.label}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVIZI IN EVIDENZA ── */}
+      <section className="py-20 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+              I nostri servizi
+            </span>
+            <h2
+              className="text-3xl sm:text-4xl font-extrabold text-[#0f172a]"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Soluzioni su misura per ogni ambiente
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredServices.map((s, i) => (
+              <motion.div
+                key={s.label}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div
+                  className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors duration-200"
+                  style={{ backgroundColor: "#e6f0fa" }}
+                >
+                  <s.icon size={24} style={{ color: "#0055A4" }} />
+                </div>
+                <h3
+                  className="font-bold text-[#0f172a] mb-2 text-base"
+                  style={{ fontFamily: "var(--font-poppins)" }}
+                >
+                  {s.label}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/servizi"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm border-2 transition-all duration-200 hover:bg-[#0055A4] hover:text-white hover:border-[#0055A4]"
+              style={{ color: "#0055A4", borderColor: "#0055A4" }}
+            >
+              Vedi tutti i servizi
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PERCHÉ SCEGLIERCI ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+              I nostri punti di forza
+            </span>
+            <h2
+              className="text-3xl sm:text-4xl font-extrabold text-[#0f172a]"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Perché scegliere M.I.P.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {reasons.map((r, i) => (
+              <motion.div
+                key={r.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="text-center"
+              >
+                <div
+                  className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-5 mx-auto"
+                  style={{ background: "linear-gradient(135deg, #0055A4, #00AEEF)" }}
+                >
+                  <r.icon size={26} className="text-white" />
+                </div>
+                <h3
+                  className="font-bold text-[#0f172a] mb-2 text-base"
+                  style={{ fontFamily: "var(--font-poppins)" }}
+                >
+                  {r.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{r.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA CENTRALE ── */}
+      <section
+        className="py-20 text-white text-center"
+        style={{
+          background: "linear-gradient(135deg, #0055A4 0%, #00AEEF 100%)",
+        }}
+      >
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl font-extrabold mb-4"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
+            Pronto per un ambiente impeccabile?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-blue-100 mb-8 text-lg leading-relaxed"
+          >
+            Richiedi un preventivo gratuito e senza impegno. Il nostro team ti risponderà
+            entro 24 ore con una soluzione personalizzata.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link
+              href="/contatti"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white text-[#0055A4] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+            >
+              Contattaci ora
+              <ArrowRight size={18} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 }
