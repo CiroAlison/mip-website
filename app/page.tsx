@@ -5,14 +5,9 @@ import {
   Building2,
   Briefcase,
   Home,
-  HardHat,
   ChefHat,
   Anchor,
-  ArrowUpDown,
-  Leaf,
   ShieldCheck,
-  Bug,
-  Wind,
   Star,
   Clock,
   MapPin,
@@ -39,11 +34,11 @@ const reasons = [
 ];
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { delay: i * 0.08, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
   }),
 };
 
@@ -52,24 +47,24 @@ export default function HomePage() {
     <>
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[88vh] flex items-center justify-center text-white overflow-hidden"
+        className="relative min-h-[92svh] sm:min-h-[88vh] flex items-center justify-center text-white overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #003d7a 0%, #0055A4 55%, #00AEEF 100%)",
         }}
       >
         {/* decorative circles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10 bg-white" />
-          <div className="absolute -bottom-24 -left-24 w-[350px] h-[350px] rounded-full opacity-10 bg-white" />
+          <div className="absolute -top-32 -right-32 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] rounded-full opacity-10 bg-white" />
+          <div className="absolute -bottom-24 -left-24 w-[280px] sm:w-[350px] h-[280px] sm:h-[350px] rounded-full opacity-10 bg-white" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-white/20 rounded-full px-4 py-1.5 mb-6">
+            <span className="inline-block text-[11px] sm:text-xs font-semibold tracking-widest uppercase bg-white/20 rounded-full px-4 py-1.5 mb-5 sm:mb-6">
               Napoli · Italia
             </span>
           </motion.div>
@@ -78,10 +73,10 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-sm"
+            className="text-[2rem] sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-5 sm:mb-6 drop-shadow-sm"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
-            Pulizia professionale<br />
+            Pulizia professionale{" "}
             <span style={{ color: "#9de6ff" }}>che fa la differenza</span>
           </motion.h1>
 
@@ -89,7 +84,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base sm:text-xl text-blue-100 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed"
           >
             Esperienza, professionalità e innovazione al servizio di condomini, uffici,
             industrie, yacht e molto altro — da Napoli a tutta Italia.
@@ -99,11 +94,11 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
           >
             <Link
               href="/contatti"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base text-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-xl font-bold text-base text-white shadow-lg transition-all duration-200 active:scale-95 hover:scale-105 hover:shadow-xl"
               style={{ backgroundColor: "#00AEEF" }}
             >
               Richiedi Preventivo
@@ -111,7 +106,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/servizi"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white/15 border border-white/30 backdrop-blur-sm hover:bg-white/25 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-xl font-bold text-base bg-white/15 border border-white/30 backdrop-blur-sm hover:bg-white/25 active:scale-95 transition-all duration-200"
             >
               Scopri i Servizi
             </Link>
@@ -120,35 +115,35 @@ export default function HomePage() {
 
         {/* wave divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-12 sm:h-16">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-10 sm:h-16">
             <path d="M0 80L60 66.7C120 53 240 27 360 21.3C480 16 600 32 720 42.7C840 53 960 59 1080 53.3C1200 48 1320 32 1380 24L1440 16V80H0Z" fill="white" />
           </svg>
         </div>
       </section>
 
       {/* ── CHI SIAMO ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-14 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-10 sm:gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
                 Chi siamo
               </span>
               <h2
-                className="text-3xl sm:text-4xl font-extrabold text-[#0f172a] mb-6 leading-tight"
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a] mb-5 sm:mb-6 leading-tight"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
-                La pulizia è il nostro mestiere,<br />
+                La pulizia è il nostro mestiere,{" "}
                 <span className="text-[#0055A4]">la cura è la nostra passione</span>
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-5 text-base">
-                M.I.P. Moderna Impresa di Pulizia s.r.l. è un'azienda napoletana con una lunga tradizione nel settore
-                dei servizi di pulizia e igienizzazione. Fondata con l'obiettivo di offrire qualità superiore,
+              <p className="text-gray-600 leading-relaxed mb-5 text-sm sm:text-base">
+                M.I.P. Moderna Impresa di Pulizia s.r.l. è un&apos;azienda napoletana con una lunga tradizione nel settore
+                dei servizi di pulizia e igienizzazione. Fondata con l&apos;obiettivo di offrire qualità superiore,
                 siamo cresciuti diventando un punto di riferimento per privati, condominii, aziende e strutture
                 ricettive su tutto il territorio nazionale.
               </p>
@@ -168,11 +163,11 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-2 gap-3 sm:gap-4"
             >
               {[
                 { value: "25+", label: "Anni di esperienza" },
@@ -182,15 +177,15 @@ export default function HomePage() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
+                  className="rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
                 >
                   <p
-                    className="text-3xl font-extrabold mb-1"
+                    className="text-2xl sm:text-3xl font-extrabold mb-1"
                     style={{ color: "#0055A4", fontFamily: "var(--font-poppins)" }}
                   >
                     {stat.value}
                   </p>
-                  <p className="text-xs text-gray-500 font-medium">{stat.label}</p>
+                  <p className="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug">{stat.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -199,21 +194,21 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVIZI IN EVIDENZA ── */}
-      <section className="py-20 bg-[#f8fafc]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+      <section className="py-14 sm:py-20 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
               I nostri servizi
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-extrabold text-[#0f172a]"
+              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Soluzioni su misura per ogni ambiente
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {featuredServices.map((s, i) => (
               <motion.div
                 key={s.label}
@@ -222,29 +217,29 @@ export default function HomePage() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <div
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-colors duration-200"
+                  className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl mb-4"
                   style={{ backgroundColor: "#e6f0fa" }}
                 >
-                  <s.icon size={24} style={{ color: "#0055A4" }} />
+                  <s.icon size={22} style={{ color: "#0055A4" }} />
                 </div>
                 <h3
-                  className="font-bold text-[#0f172a] mb-2 text-base"
+                  className="font-bold text-[#0f172a] mb-2 text-sm sm:text-base"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   {s.label}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 sm:mt-10">
             <Link
               href="/servizi"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm border-2 transition-all duration-200 hover:bg-[#0055A4] hover:text-white hover:border-[#0055A4]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm border-2 transition-all duration-200 hover:bg-[#0055A4] hover:text-white hover:border-[#0055A4] active:scale-95"
               style={{ color: "#0055A4", borderColor: "#0055A4" }}
             >
               Vedi tutti i servizi
@@ -255,21 +250,21 @@ export default function HomePage() {
       </section>
 
       {/* ── PERCHÉ SCEGLIERCI ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+      <section className="py-14 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
               I nostri punti di forza
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-extrabold text-[#0f172a]"
+              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Perché scegliere M.I.P.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {reasons.map((r, i) => (
               <motion.div
                 key={r.title}
@@ -281,18 +276,18 @@ export default function HomePage() {
                 className="text-center"
               >
                 <div
-                  className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-5 mx-auto"
+                  className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl mb-4 sm:mb-5 mx-auto"
                   style={{ background: "linear-gradient(135deg, #0055A4, #00AEEF)" }}
                 >
-                  <r.icon size={26} className="text-white" />
+                  <r.icon size={22} className="text-white" />
                 </div>
                 <h3
-                  className="font-bold text-[#0f172a] mb-2 text-base"
+                  className="font-bold text-[#0f172a] mb-2 text-sm sm:text-base"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   {r.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{r.desc}</p>
+                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{r.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -301,18 +296,18 @@ export default function HomePage() {
 
       {/* ── CTA CENTRALE ── */}
       <section
-        className="py-20 text-white text-center"
+        className="py-14 sm:py-20 text-white text-center"
         style={{
           background: "linear-gradient(135deg, #0055A4 0%, #00AEEF 100%)",
         }}
       >
-        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+        <div className="max-w-2xl mx-auto px-5 sm:px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-extrabold mb-4"
+            className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             Pronto per un ambiente impeccabile?
@@ -322,7 +317,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-blue-100 mb-8 text-lg leading-relaxed"
+            className="text-blue-100 mb-7 sm:mb-8 text-sm sm:text-lg leading-relaxed"
           >
             Richiedi un preventivo gratuito e senza impegno. Il nostro team ti risponderà
             entro 24 ore con una soluzione personalizzata.
@@ -332,14 +327,21 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-3 justify-center"
           >
             <Link
               href="/contatti"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white text-[#0055A4] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white text-[#0055A4] shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
             >
               Contattaci ora
               <ArrowRight size={18} />
             </Link>
+            <a
+              href="tel:0813625750"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base border-2 border-white/50 hover:border-white hover:bg-white/10 active:scale-95 transition-all duration-200"
+            >
+              081 362 5750
+            </a>
           </motion.div>
         </div>
       </section>

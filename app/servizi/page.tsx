@@ -100,16 +100,16 @@ export default function ServiziPage() {
     <>
       {/* Hero */}
       <section
-        className="py-20 text-white text-center"
+        className="py-14 sm:py-20 text-white text-center"
         style={{
           background: "linear-gradient(135deg, #003d7a 0%, #0055A4 60%, #00AEEF 100%)",
         }}
       >
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto px-5 sm:px-6">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-xs font-semibold uppercase tracking-widest bg-white/20 rounded-full px-4 py-1.5 mb-6 inline-block"
+            className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest bg-white/20 rounded-full px-4 py-1.5 mb-6 inline-block"
           >
             I nostri servizi
           </motion.span>
@@ -117,7 +117,7 @@ export default function ServiziPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl font-extrabold mb-4"
+            className="text-3xl sm:text-5xl font-extrabold mb-4 leading-tight"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             Tutto ciò di cui hai bisogno
@@ -126,7 +126,7 @@ export default function ServiziPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-blue-100 text-lg leading-relaxed"
+            className="text-blue-100 text-base sm:text-lg leading-relaxed"
           >
             Dalla pulizia condominiale alla sanificazione di ambienti complessi —
             offriamo 11 servizi specializzati con standard di qualità elevati.
@@ -135,9 +135,9 @@ export default function ServiziPage() {
       </section>
 
       {/* Grid servizi */}
-      <section className="py-20 bg-[#f8fafc]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+      <section className="py-14 sm:py-20 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-7">
             {services.map((s, i) => (
               <motion.article
                 key={s.title}
@@ -146,26 +146,26 @@ export default function ServiziPage() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeUp}
-                className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                className="bg-white rounded-2xl p-5 sm:p-7 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
                 <div
-                  className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5"
+                  className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl mb-4 sm:mb-5"
                   style={{ backgroundColor: "#e6f0fa" }}
                 >
-                  <s.icon size={24} style={{ color: "#0055A4" }} />
+                  <s.icon size={22} style={{ color: "#0055A4" }} />
                 </div>
                 <h2
-                  className="font-bold text-[#0f172a] mb-3 text-lg"
+                  className="font-bold text-[#0f172a] mb-2 sm:mb-3 text-base sm:text-lg"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   {s.title}
                 </h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-1">{s.desc}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-sm text-gray-500 leading-relaxed mb-4 sm:mb-5 flex-1">{s.desc}</p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {s.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-medium px-2.5 py-1 rounded-full"
+                      className="text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-full"
                       style={{ backgroundColor: "#e6f0fa", color: "#0055A4" }}
                     >
                       {tag}
@@ -180,23 +180,23 @@ export default function ServiziPage() {
 
       {/* CTA */}
       <section
-        className="py-16 text-white text-center"
+        className="py-12 sm:py-16 text-white text-center"
         style={{ background: "linear-gradient(135deg, #0055A4 0%, #00AEEF 100%)" }}
       >
-        <div className="max-w-xl mx-auto px-4 sm:px-6">
+        <div className="max-w-xl mx-auto px-5 sm:px-6">
           <h2
             className="text-2xl sm:text-3xl font-extrabold mb-4"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             Non trovi quello che cerchi?
           </h2>
-          <p className="text-blue-100 mb-7 leading-relaxed">
+          <p className="text-blue-100 mb-7 leading-relaxed text-sm sm:text-base">
             Contattaci: valutiamo ogni richiesta e troviamo la soluzione più adatta
             alle tue esigenze specifiche.
           </p>
           <Link
             href="/contatti"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[#0055A4] bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[#0055A4] bg-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
           >
             Richiedi un preventivo
             <ArrowRight size={17} />
