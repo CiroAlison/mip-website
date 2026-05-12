@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   Building2,
@@ -52,6 +53,16 @@ export default function HomePage() {
           background: "linear-gradient(135deg, #003d7a 0%, #0055A4 55%, #00AEEF 100%)",
         }}
       >
+        {/* foto di sfondo */}
+        <Image
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-15"
+          sizes="100vw"
+        />
+
         {/* decorative circles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-32 -right-32 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] rounded-full opacity-10 bg-white" />
@@ -167,27 +178,33 @@ export default function HomePage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-2 gap-3 sm:gap-4"
+              className="relative rounded-3xl overflow-hidden shadow-xl min-h-[320px] sm:min-h-[400px]"
             >
-              {[
-                { value: "25+", label: "Anni di esperienza" },
-                { value: "500+", label: "Clienti soddisfatti" },
-                { value: "11", label: "Servizi specializzati" },
-                { value: "100%", label: "Qualità garantita" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200"
-                >
-                  <p
-                    className="text-2xl sm:text-3xl font-extrabold mb-1"
-                    style={{ color: "#0055A4", fontFamily: "var(--font-poppins)" }}
-                  >
-                    {stat.value}
-                  </p>
-                  <p className="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug">{stat.label}</p>
-                </div>
-              ))}
+              <Image
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+                alt="Team M.I.P. al lavoro"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              {/* gradiente scuro in basso per leggere le stat */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#003d7a]/85 via-[#003d7a]/20 to-transparent" />
+              {/* stat box in basso */}
+              <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 divide-x divide-white/20">
+                {[
+                  { value: "25+", label: "Anni" },
+                  { value: "500+", label: "Clienti" },
+                  { value: "11", label: "Servizi" },
+                  { value: "100%", label: "Qualità" },
+                ].map((stat) => (
+                  <div key={stat.label} className="py-4 text-center text-white">
+                    <p className="text-xl sm:text-2xl font-extrabold leading-none" style={{ fontFamily: "var(--font-poppins)" }}>
+                      {stat.value}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-blue-200 mt-1 font-medium">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
