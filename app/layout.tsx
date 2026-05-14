@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -65,6 +66,16 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
       <body className="flex flex-col min-h-screen antialiased">
+        {/* Watermark fisso — mix-blend-mode:multiply: visibile su bianco, invisibile su scuro */}
+        <div className="fixed inset-0 z-[1] flex items-center justify-center pointer-events-none select-none" style={{ mixBlendMode: "multiply" }}>
+          <Image
+            src="/logo-mip-navbar.png"
+            alt=""
+            width={1200}
+            height={676}
+            className="w-[90vw] sm:w-[75vw] max-w-5xl opacity-[0.09]"
+          />
+        </div>
         <FloatingBubbles />
         <Navbar />
         <main className="flex-1">{children}</main>
