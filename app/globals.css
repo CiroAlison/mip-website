@@ -23,6 +23,17 @@
   --font-heading: var(--font-poppins);
 }
 
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-sparkle { animation: sparkle 3s ease-in-out infinite; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+
 html {
   scroll-behavior: smooth;
 }

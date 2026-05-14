@@ -41,15 +41,15 @@ export default function Navbar() {
       } bg-white`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-[72px] md:h-[88px]">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo-mip.png"
               alt="M.I.P. Moderna Impresa di Pulizia"
-              width={120}
-              height={60}
-              className="object-contain"
+              width={130}
+              height={55}
+              className="object-contain max-h-12 sm:max-h-14 w-auto"
               priority
             />
           </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile menu — overlay full screen */}
       {open && (
-        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-[72px] bg-white z-40 overflow-y-auto">
           <nav className="flex flex-col px-6 py-6 gap-1 border-t border-gray-100">
             {links.map((l) => (
               <Link
