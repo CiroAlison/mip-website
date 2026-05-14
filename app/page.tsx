@@ -319,19 +319,6 @@ export default function HomePage() {
           />
         ))}
 
-        {/* ── Scroll indicator ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-float"
-        >
-          <span className="text-xs text-white/50 uppercase tracking-widest font-semibold">Scopri di più</span>
-          <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
-            <path d="M8 0v16M1 9l7 7 7-7" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </motion.div>
-
         {/* ── Wave divider ── */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-10 sm:h-16">
