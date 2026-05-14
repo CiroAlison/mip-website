@@ -104,133 +104,160 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           1. HERO
       ══════════════════════════════════════ */}
-      <section
-        className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
-        style={{
-          background: "linear-gradient(135deg, #1a7a32 0%, #25A244 60%, #4DC76A 100%)",
-        }}
-      >
-        {/* Background photo */}
-        <Image
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=80"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-20"
-          sizes="100vw"
+      <section className="relative min-h-screen flex flex-col justify-center text-white overflow-hidden">
+
+        {/* ── Sfondo fotografico con Ken Burns (effetto video) ── */}
+        <div className="absolute inset-0 animate-kenburns">
+          <Image
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+
+        {/* ── Overlay scuro sfumato ── */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(10,50,20,0.93) 0%, rgba(20,100,40,0.88) 45%, rgba(37,162,68,0.72) 100%)",
+          }}
         />
 
-        {/* Decorative circles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] rounded-full opacity-10 bg-white" />
-          <div className="absolute -bottom-24 -left-24 w-[280px] sm:w-[400px] h-[280px] sm:h-[400px] rounded-full opacity-10 bg-white" />
+        {/* ── Linee diagonali decorative ── */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full"
+            style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.05) 40px, rgba(255,255,255,0.05) 41px)" }}
+          />
         </div>
 
-        {/* Sparkle decorativi */}
-        <div className="absolute top-16 left-12 opacity-40 animate-sparkle" style={{ animationDelay: "0s" }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2L13.5 9L20 12L13.5 15L12 22L10.5 15L4 12L10.5 9L12 2Z" />
-          </svg>
-        </div>
-        <div className="absolute top-1/3 right-16 opacity-30 animate-sparkle" style={{ animationDelay: "0.5s" }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2L13.5 9L20 12L13.5 15L12 22L10.5 15L4 12L10.5 9L12 2Z" />
-          </svg>
-        </div>
-        <div className="absolute bottom-1/3 left-1/4 opacity-25 animate-sparkle" style={{ animationDelay: "1s" }}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2L13.5 9L20 12L13.5 15L12 22L10.5 15L4 12L10.5 9L12 2Z" />
-          </svg>
-        </div>
-        <div className="absolute bottom-24 right-1/4 opacity-35 animate-sparkle" style={{ animationDelay: "1.5s" }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2L13.5 9L20 12L13.5 15L12 22L10.5 15L4 12L10.5 9L12 2Z" />
-          </svg>
-        </div>
+        {/* ── Sparkle ── */}
+        {[
+          { size: 22, top: "14%", left: "8%", delay: "0s", opacity: 0.5 },
+          { size: 16, top: "30%", right: "10%", delay: "0.7s", opacity: 0.35 },
+          { size: 12, bottom: "35%", left: "22%", delay: "1.3s", opacity: 0.3 },
+          { size: 18, bottom: "20%", right: "18%", delay: "2s", opacity: 0.4 },
+        ].map((s, i) => (
+          <div
+            key={i}
+            className="absolute animate-sparkle"
+            style={{ top: s.top, left: s.left, right: (s as {right?: string}).right, bottom: s.bottom, opacity: s.opacity, animationDelay: s.delay }}
+          >
+            <svg width={s.size} height={s.size} viewBox="0 0 24 24" fill="white">
+              <path d="M12 2L13.5 9L20 12L13.5 15L12 22L10.5 15L4 12L10.5 9L12 2Z" />
+            </svg>
+          </div>
+        ))}
 
-        <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 text-center py-24">
-          {/* Logo */}
+        {/* ── Contenuto principale ── */}
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center pt-32 pb-24 sm:pt-40 sm:pb-28">
+
+          {/* Pill badge */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-8 animate-float"
+            className="mb-7"
           >
-            <Image
-              src="/logo-mip.png"
-              alt="M.I.P. Moderna Impresa di Pulizia"
-              width={200}
-              height={100}
-              className="object-contain w-40 sm:w-52 mx-auto drop-shadow-2xl"
-              priority
-            />
+            <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] bg-white/15 border border-white/25 rounded-full px-5 py-2.5 backdrop-blur-sm">
+              <span style={{ color: "#7fe89b" }}>★</span>
+              Dal 1999 &mdash; Napoli e tutta Italia
+            </span>
           </motion.div>
 
-          {/* Tagline */}
+          {/* H1 */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-4 drop-shadow-sm"
+            transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6 drop-shadow-lg"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
-            La soluzione{" "}
-            <span style={{ color: "#b8f0c8" }}>si chiama così</span>
+            Ambienti impeccabili.<br />
+            <span style={{ color: "#7fe89b" }}>Ogni giorno, sempre.</span>
           </motion.h1>
 
           {/* Sottotitolo */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-base sm:text-xl text-green-100 max-w-2xl mx-auto mb-7 leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-base sm:text-xl text-green-100/90 max-w-2xl mx-auto mb-9 leading-relaxed"
           >
-            Pulizia professionale per condomini, uffici, industrie e yacht — da Napoli a tutta Italia
+            Pulizia professionale per condomini, uffici, cucine industriali e yacht.
+            <br className="hidden sm:block" />
+            Prodotti certificati, personale qualificato, zero compromessi.
           </motion.p>
 
-          {/* Badge pill */}
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10"
-          >
-            {["✓ Certificato HACCP", "✓ Prodotti Ecologici", "✓ 25+ Anni di Esperienza"].map((badge) => (
-              <span
-                key={badge}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-white/20 text-white border border-white/30 backdrop-blur-sm"
-              >
-                {badge}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-14 sm:mb-16"
           >
             <Link
               href="/contatti"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-xl font-bold text-base text-white shadow-xl transition-all duration-200 active:scale-95 hover:scale-105 hover:shadow-2xl min-h-[48px]"
-              style={{ backgroundColor: "#1a7a32" }}
+              className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 rounded-xl font-bold text-base sm:text-lg shadow-2xl transition-all duration-200 active:scale-95 hover:scale-105 min-h-[52px]"
+              style={{ backgroundColor: "#25A244", color: "#fff" }}
             >
               Richiedi Preventivo Gratuito
-              <ArrowRight size={18} />
+              <ArrowRight size={19} />
             </Link>
             <a
               href="tel:800653110"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-xl font-bold text-base bg-transparent border-2 border-white hover:bg-white/15 active:scale-95 transition-all duration-200 min-h-[48px]"
+              className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 rounded-xl font-bold text-base sm:text-lg bg-white/10 border-2 border-white/60 hover:bg-white/20 active:scale-95 transition-all duration-200 min-h-[52px] backdrop-blur-sm"
             >
-              <Phone size={18} />
+              <Phone size={19} />
               800 65 31 10
+              <span className="text-xs font-normal opacity-75 ml-1">(gratuito)</span>
             </a>
+          </motion.div>
+
+          {/* Stats strip dentro hero */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.44, ease: [0.25, 0.1, 0.25, 1] }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto"
+          >
+            {[
+              { num: "25+", label: "Anni di esperienza" },
+              { num: "500+", label: "Clienti soddisfatti" },
+              { num: "11", label: "Servizi specializzati" },
+              { num: "HACCP", label: "Certificato" },
+            ].map((stat) => (
+              <div
+                key={stat.num}
+                className="rounded-2xl px-4 py-4 text-center backdrop-blur-sm border border-white/20"
+                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+              >
+                <p className="text-2xl sm:text-3xl font-extrabold leading-none mb-1" style={{ fontFamily: "var(--font-poppins)", color: "#7fe89b" }}>
+                  {stat.num}
+                </p>
+                <p className="text-xs sm:text-sm text-green-100/80 font-medium">{stat.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* Wave divider */}
+        {/* ── Scroll indicator ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-float"
+        >
+          <span className="text-xs text-white/50 uppercase tracking-widest font-semibold">Scopri di più</span>
+          <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+            <path d="M8 0v16M1 9l7 7 7-7" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </motion.div>
+
+        {/* ── Wave divider ── */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-10 sm:h-16">
             <path d="M0 80L60 66.7C120 53 240 27 360 21.3C480 16 600 32 720 42.7C840 53 960 59 1080 53.3C1200 48 1320 32 1380 24L1440 16V80H0Z" fill="white" />
