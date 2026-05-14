@@ -57,11 +57,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/logo-mip.png"
+              src="/logo-mip-navbar.png"
               alt="M.I.P. Moderna Impresa di Pulizia"
-              width={130}
-              height={55}
-              className="object-contain h-10 sm:h-12 w-auto"
+              width={200}
+              height={113}
+              className="object-contain h-14 sm:h-16 w-auto"
               priority
             />
           </Link>

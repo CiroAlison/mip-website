@@ -368,7 +368,10 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           3. SERVIZI IN EVIDENZA
       ══════════════════════════════════════ */}
-      <section className="py-14 sm:py-24 bg-white">
+      <section className="py-14 sm:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <Image src="/logo-mip-navbar.png" alt="" width={1200} height={676} className="w-[70%] sm:w-[55%] max-w-2xl opacity-[0.05]" />
+        </div>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <motion.span
@@ -511,7 +514,10 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           5. CHI SIAMO
       ══════════════════════════════════════ */}
-      <section className="py-14 sm:py-24 bg-white">
+      <section className="py-14 sm:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <Image src="/logo-mip-navbar.png" alt="" width={1200} height={676} className="w-[70%] sm:w-[55%] max-w-2xl opacity-[0.05]" />
+        </div>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
@@ -677,7 +683,10 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           7. PERCHÉ SCEGLIERCI
       ══════════════════════════════════════ */}
-      <section className="py-14 sm:py-24 bg-white">
+      <section className="py-14 sm:py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <Image src="/logo-mip-navbar.png" alt="" width={1200} height={676} className="w-[70%] sm:w-[55%] max-w-2xl opacity-[0.05]" />
+        </div>
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <motion.span
@@ -802,7 +811,10 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           9. RECENSIONI GOOGLE CTA
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-white">
+      <section className="py-12 sm:py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+          <Image src="/logo-mip-navbar.png" alt="" width={1200} height={676} className="w-[60%] sm:w-[40%] max-w-lg opacity-[0.05]" />
+        </div>
         <div className="max-w-3xl mx-auto px-5 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
