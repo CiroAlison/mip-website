@@ -170,96 +170,129 @@ export default function HomePage() {
           </div>
         ))}
 
-        {/* ── Contenuto principale ── */}
-        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center pt-32 pb-24 sm:pt-40 sm:pb-28">
+        {/* ── Contenuto split: testo sx / foto dx ── */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-28 pb-20 sm:pt-36 sm:pb-24">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Pill badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-7"
-          >
-            <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] bg-white/15 border border-white/25 rounded-full px-5 py-2.5 backdrop-blur-sm">
-              <span style={{ color: "#7fe89b" }}>★</span>
-              Dal 1999 &mdash; Napoli e tutta Italia
-            </span>
-          </motion.div>
-
-          {/* H1 */}
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] mb-6 drop-shadow-lg"
-            style={{ fontFamily: "var(--font-poppins)" }}
-          >
-            Ambienti impeccabili.<br />
-            <span style={{ color: "#7fe89b" }}>Ogni giorno, sempre.</span>
-          </motion.h1>
-
-          {/* Sottotitolo */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-base sm:text-xl text-green-100/90 max-w-2xl mx-auto mb-9 leading-relaxed"
-          >
-            Pulizia professionale per condomini, uffici, cucine industriali e yacht.
-            <br className="hidden sm:block" />
-            Prodotti certificati, personale qualificato, zero compromessi.
-          </motion.p>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-14 sm:mb-16"
-          >
-            <Link
-              href="/contatti"
-              className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 rounded-xl font-bold text-base sm:text-lg shadow-2xl transition-all duration-200 active:scale-95 hover:scale-105 min-h-[52px]"
-              style={{ backgroundColor: "#25A244", color: "#fff" }}
-            >
-              Richiedi Preventivo Gratuito
-              <ArrowRight size={19} />
-            </Link>
-            <a
-              href="tel:800653110"
-              className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 rounded-xl font-bold text-base sm:text-lg bg-white/10 border-2 border-white/60 hover:bg-white/20 active:scale-95 transition-all duration-200 min-h-[52px] backdrop-blur-sm"
-            >
-              <Phone size={19} />
-              800 65 31 10
-              <span className="text-xs font-normal opacity-75 ml-1">(gratuito)</span>
-            </a>
-          </motion.div>
-
-          {/* Stats strip dentro hero */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.44, ease: [0.25, 0.1, 0.25, 1] }}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto"
-          >
-            {[
-              { num: "25+", label: "Anni di esperienza" },
-              { num: "500+", label: "Clienti soddisfatti" },
-              { num: "11", label: "Servizi specializzati" },
-              { num: "HACCP", label: "Certificato" },
-            ].map((stat) => (
-              <div
-                key={stat.num}
-                className="rounded-2xl px-4 py-4 text-center backdrop-blur-sm border border-white/20"
-                style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+            {/* ── Colonna TESTO ── */}
+            <div className="text-left">
+              {/* Pill badge */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                className="mb-6"
               >
-                <p className="text-2xl sm:text-3xl font-extrabold leading-none mb-1" style={{ fontFamily: "var(--font-poppins)", color: "#7fe89b" }}>
-                  {stat.num}
-                </p>
-                <p className="text-xs sm:text-sm text-green-100/80 font-medium">{stat.label}</p>
+                <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] bg-white/15 border border-white/25 rounded-full px-5 py-2.5 backdrop-blur-sm">
+                  <span style={{ color: "#7fe89b" }}>★</span>
+                  Dal 1999 &mdash; Napoli e tutta Italia
+                </span>
+              </motion.div>
+
+              {/* H1 */}
+              <motion.h1
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] mb-6 drop-shadow-lg"
+                style={{ fontFamily: "var(--font-poppins)" }}
+              >
+                Ambienti<br />
+                <span style={{ color: "#7fe89b" }}>impeccabili.</span><br />
+                Ogni giorno.
+              </motion.h1>
+
+              {/* Sottotitolo */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+                className="text-base sm:text-lg text-green-100/90 max-w-lg mb-8 leading-relaxed"
+              >
+                Pulizia professionale per condomini, uffici, cucine industriali e yacht.
+                Prodotti certificati, personale qualificato, zero compromessi.
+              </motion.p>
+
+              {/* CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
+                className="flex flex-col sm:flex-row gap-3 mb-10"
+              >
+                <Link
+                  href="/contatti"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-base shadow-2xl transition-all duration-200 active:scale-95 hover:scale-105 min-h-[52px]"
+                  style={{ backgroundColor: "#25A244", color: "#fff" }}
+                >
+                  Richiedi Preventivo Gratuito
+                  <ArrowRight size={18} />
+                </Link>
+                <a
+                  href="tel:800653110"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-bold text-base bg-white/10 border-2 border-white/50 hover:bg-white/20 active:scale-95 transition-all duration-200 min-h-[52px] backdrop-blur-sm"
+                >
+                  <Phone size={18} />
+                  800 65 31 10
+                </a>
+              </motion.div>
+
+              {/* Trust badges riga */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="flex flex-wrap gap-2"
+              >
+                {["✓ HACCP", "✓ Eco Cert", "✓ 25+ Anni", "✓ Assicurati"].map((b) => (
+                  <span key={b} className="text-[11px] font-semibold px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-white/90">
+                    {b}
+                  </span>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* ── Colonna FOTO ── */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, scale: 0.96 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative hidden lg:block"
+            >
+              {/* Foto principale */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20" style={{ aspectRatio: "4/5" }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=85"
+                  alt="Operatori M.I.P. al lavoro"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-            ))}
-          </motion.div>
+
+              {/* Foto secondaria sovrapposta — in basso a sinistra */}
+              <div
+                className="absolute -bottom-6 -left-8 w-48 sm:w-56 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/30"
+                style={{ aspectRatio: "4/3" }}
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=85"
+                  alt="Pulizia professionale uffici"
+                  fill
+                  className="object-cover"
+                  sizes="220px"
+                />
+              </div>
+
+              {/* Badge sovrapposto — in alto a destra */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl px-4 py-3 shadow-xl text-center">
+                <p className="text-2xl font-extrabold text-[#25A244] leading-none" style={{ fontFamily: "var(--font-poppins)" }}>500+</p>
+                <p className="text-xs text-gray-500 font-medium mt-0.5">Clienti felici</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* ── Bolle pulenti animate ── */}

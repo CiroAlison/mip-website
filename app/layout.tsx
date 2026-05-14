@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
+import FloatingBubbles from "@/components/FloatingBubbles";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -55,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
       <body className="flex flex-col min-h-screen antialiased">
+        <FloatingBubbles />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
