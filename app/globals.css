@@ -48,6 +48,34 @@
   will-change: transform;
 }
 
+/* ── Bolle pulenti ── */
+@keyframes bubble-rise {
+  0%   { transform: translateY(0) scale(1);    opacity: 0.55; }
+  80%  { opacity: 0.2; }
+  100% { transform: translateY(-220px) scale(0.3); opacity: 0; }
+}
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  animation: bubble-rise linear infinite;
+  pointer-events: none;
+}
+
+/* ── Wipe underline ── */
+@keyframes wipe-line {
+  0%   { width: 0; opacity: 0; }
+  100% { width: 72px; opacity: 1; }
+}
+.wipe-line {
+  height: 4px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #25A244, #4DC76A);
+  animation: wipe-line 0.6s ease forwards;
+  animation-play-state: paused;
+}
+.wipe-line.active { animation-play-state: running; }
+
 html {
   scroll-behavior: smooth;
 }

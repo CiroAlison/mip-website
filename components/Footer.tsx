@@ -9,13 +9,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <div className="mb-4 inline-block bg-white rounded-xl px-3 py-2">
+            <div className="mb-4">
               <Image
-                src="/logo-mip.png"
+                src="/logo-mip-transparent.png"
                 alt="M.I.P. Moderna Impresa di Pulizia"
-                width={120}
-                height={55}
-                className="object-contain"
+                width={140}
+                height={60}
+                className="object-contain brightness-0 invert"
               />
             </div>
             <p className="text-sm text-gray-400 mb-4 leading-relaxed">

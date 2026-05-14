@@ -84,6 +84,24 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 /* ─────────────────────────────────────────────
+   WIPE TITLE — effetto tergicristallo sul titolo
+───────────────────────────────────────────── */
+function WipeTitle({ children, className, style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
+  return (
+    <motion.h2
+      initial={{ clipPath: "inset(0 100% 0 0 round 2px)" }}
+      whileInView={{ clipPath: "inset(0 0% 0 0 round 2px)" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
+      className={className}
+      style={style}
+    >
+      {children}
+    </motion.h2>
+  );
+}
+
+/* ─────────────────────────────────────────────
    VARIANTS
 ───────────────────────────────────────────── */
 const fadeUp: Variants = {
@@ -244,6 +262,30 @@ export default function HomePage() {
           </motion.div>
         </div>
 
+        {/* ── Bolle pulenti animate ── */}
+        {[
+          { size: 18, left: "8%",  delay: "0s",   dur: "7s"  },
+          { size: 10, left: "22%", delay: "1.5s", dur: "5.5s" },
+          { size: 24, left: "38%", delay: "0.8s", dur: "8s"  },
+          { size: 14, left: "55%", delay: "2.2s", dur: "6s"  },
+          { size: 20, left: "70%", delay: "0.3s", dur: "7.5s" },
+          { size: 12, left: "85%", delay: "1.8s", dur: "6.5s" },
+          { size: 16, left: "93%", delay: "3s",   dur: "5s"  },
+        ].map((b, i) => (
+          <div
+            key={i}
+            className="bubble"
+            style={{
+              width: b.size,
+              height: b.size,
+              left: b.left,
+              bottom: "80px",
+              animationDelay: b.delay,
+              animationDuration: b.dur,
+            }}
+          />
+        ))}
+
         {/* ── Scroll indicator ── */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -266,16 +308,19 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
-          2. COUNTER STRIP
+          2. COUNTER STRIP — dark green
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-16 bg-white border-b border-gray-100">
+      <section
+        className="py-12 sm:py-16"
+        style={{ background: "linear-gradient(135deg, #0f3d1a 0%, #1a5c2a 50%, #1e6b31 100%)" }}
+      >
         <div className="max-w-5xl mx-auto px-5 sm:px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             {[
-              { target: 25, suffix: "+", label: "Anni di esperienza" },
-              { target: 500, suffix: "+", label: "Clienti soddisfatti" },
-              { target: 11, suffix: "", label: "Servizi specializzati" },
-              { target: 100, suffix: "%", label: "Qualità garantita" },
+              { target: 25, suffix: "+", label: "Anni di esperienza", emoji: "🏆" },
+              { target: 500, suffix: "+", label: "Clienti soddisfatti", emoji: "⭐" },
+              { target: 11, suffix: "", label: "Servizi specializzati", emoji: "🧹" },
+              { target: 100, suffix: "%", label: "Qualità garantita", emoji: "✅" },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -284,14 +329,16 @@ export default function HomePage() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeUp}
+                className="flex flex-col items-center"
               >
+                <span className="text-2xl mb-2">{item.emoji}</span>
                 <p
                   className="text-4xl sm:text-5xl font-extrabold mb-1 leading-none"
-                  style={{ color: "#25A244", fontFamily: "var(--font-poppins)" }}
+                  style={{ color: "#7fe89b", fontFamily: "var(--font-poppins)" }}
                 >
                   <AnimatedCounter target={item.target} suffix={item.suffix} />
                 </p>
-                <p className="text-sm sm:text-base text-gray-500 font-medium">{item.label}</p>
+                <p className="text-sm sm:text-base text-green-200 font-medium">{item.label}</p>
               </motion.div>
             ))}
           </div>
@@ -301,44 +348,59 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           3. SERVIZI IN EVIDENZA
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-[#f8fafc]">
+      <section className="py-14 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
-              I nostri servizi
-            </span>
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
-              style={{ fontFamily: "var(--font-poppins)" }}
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block"
             >
-              Soluzioni su misura per ogni ambiente
-            </h2>
+              I nostri servizi
+            </motion.span>
+            <WipeTitle
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a] leading-tight"
+              style={{ fontFamily: "var(--font-poppins)" } as React.CSSProperties}
+            >
+              Soluzioni su misura<br className="hidden sm:block" /> per ogni ambiente
+            </WipeTitle>
+            <motion.div
+              className="h-1 rounded-full mx-auto mt-4"
+              style={{ background: "linear-gradient(90deg, #25A244, #4DC76A)" }}
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 72, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
             {featuredServices.map((s, i) => (
               <motion.div
                 key={s.label}
                 custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:-translate-y-1 hover:border-[#25A244] transition-all duration-300"
+                initial={{ opacity: 0, y: 32, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: i * 0.09, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                className="group bg-white rounded-2xl p-6 sm:p-7 shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 hover:border-[#25A244]/40 transition-all duration-300"
               >
                 <div
-                  className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl mb-4"
-                  style={{ backgroundColor: "#e8f5ed" }}
+                  className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl mb-5 shadow-sm group-hover:scale-110 transition-transform duration-300"
+                  style={{ background: "linear-gradient(135deg, #e8f5ed, #d0edda)" }}
                 >
-                  <s.icon size={22} style={{ color: "#25A244" }} />
+                  <s.icon size={24} style={{ color: "#25A244" }} />
                 </div>
                 <h3
-                  className="font-bold text-[#0f172a] mb-2 text-sm sm:text-base"
+                  className="font-bold text-[#0f172a] mb-2.5 text-base sm:text-lg"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   {s.label}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                <div className="mt-4 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded-full" style={{ background: "linear-gradient(90deg, #25A244, #4DC76A)" }} />
               </motion.div>
             ))}
           </div>
@@ -359,18 +421,32 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           4. COME LAVORIAMO
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-white">
+      <section className="py-14 sm:py-24 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block"
+            >
               Il nostro metodo
-            </span>
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
-              style={{ fontFamily: "var(--font-poppins)" }}
+            </motion.span>
+            <WipeTitle
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a]"
+              style={{ fontFamily: "var(--font-poppins)" } as React.CSSProperties}
             >
               Come lavoriamo
-            </h2>
+            </WipeTitle>
+            <motion.div
+              className="h-1 rounded-full mx-auto mt-4"
+              style={{ background: "linear-gradient(90deg, #25A244, #4DC76A)" }}
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 72, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative">
@@ -415,7 +491,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           5. CHI SIAMO
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-[#f8fafc]">
+      <section className="py-14 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
@@ -424,16 +500,20 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block">
                 Chi siamo
               </span>
-              <h2
-                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a] mb-5 sm:mb-6 leading-tight"
+              <motion.h2
+                initial={{ clipPath: "inset(0 100% 0 0 round 2px)" }}
+                whileInView={{ clipPath: "inset(0 0% 0 0 round 2px)" }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a] mb-5 sm:mb-6 leading-tight"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 La pulizia è il nostro mestiere,{" "}
                 <span style={{ color: "#25A244" }}>la cura è la nostra passione</span>
-              </h2>
+              </motion.h2>
               <p className="text-gray-600 leading-relaxed mb-5 text-sm sm:text-base">
                 M.I.P. Moderna Impresa di Pulizia s.r.l. è un&apos;azienda napoletana con una lunga tradizione nel settore
                 dei servizi di pulizia e igienizzazione. Fondata con l&apos;obiettivo di offrire qualità superiore,
@@ -508,50 +588,64 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           6. TESTIMONIANZE
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-[#f1f5f9]">
+      <section
+        className="py-14 sm:py-24"
+        style={{ background: "linear-gradient(135deg, #0f3d1a 0%, #1a5c2a 100%)" }}
+      >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
-              Testimonial
-            </span>
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-green-400 mb-4 block"
+            >
+              Testimonianze
+            </motion.span>
+            <motion.h2
+              initial={{ clipPath: "inset(0 100% 0 0 round 2px)" }}
+              whileInView={{ clipPath: "inset(0 0% 0 0 round 2px)" }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Cosa dicono i nostri clienti
-            </h2>
+            </motion.h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-7">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
                 custom={i}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 32, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300"
+                transition={{ delay: i * 0.12, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                className="rounded-2xl p-6 sm:p-7 border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-1"
+                style={{ backgroundColor: "rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.stars }).map((_, si) => (
-                    <Star key={si} size={16} fill="#FBBF24" className="text-yellow-400" />
+                    <Star key={si} size={18} fill="#FBBF24" className="text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-5 italic">
+                <p className="text-sm sm:text-base text-green-100 leading-relaxed mb-5 italic">
                   &ldquo;{t.text}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                <div className="flex items-center gap-3 pt-4 border-t border-white/15">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm shrink-0"
+                    className="w-11 h-11 rounded-full flex items-center justify-center font-bold text-white text-base shrink-0 shadow-lg"
                     style={{ background: "linear-gradient(135deg, #25A244, #4DC76A)" }}
                   >
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-semibold text-[#0f172a] text-sm">{t.name}</p>
-                    <p className="text-xs text-gray-400">{t.type}</p>
+                    <p className="font-semibold text-white text-sm">{t.name}</p>
+                    <p className="text-xs text-green-300">{t.type}</p>
                   </div>
                 </div>
               </motion.div>
@@ -563,45 +657,59 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           7. PERCHÉ SCEGLIERCI
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-white">
+      <section className="py-14 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block"
+            >
               I nostri punti di forza
-            </span>
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
-              style={{ fontFamily: "var(--font-poppins)" }}
+            </motion.span>
+            <WipeTitle
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a]"
+              style={{ fontFamily: "var(--font-poppins)" } as React.CSSProperties}
             >
               Perché scegliere M.I.P.
-            </h2>
+            </WipeTitle>
+            <motion.div
+              className="h-1 rounded-full mx-auto mt-4"
+              style={{ background: "linear-gradient(90deg, #25A244, #4DC76A)" }}
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 72, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            />
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {reasons.map((r, i) => (
               <motion.div
                 key={r.title}
                 custom={i}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 32, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                variants={fadeUp}
-                className="rounded-2xl p-5 sm:p-6 text-center"
-                style={{ background: "linear-gradient(135deg, #e8f5ed 0%, #f0faf3 100%)" }}
+                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                className="group rounded-2xl p-6 sm:p-7 text-center shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 hover:border-[#25A244]/30"
+                style={{ background: "linear-gradient(135deg, #f8fdf9 0%, #eef9f2 100%)" }}
               >
                 <div
-                  className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl mb-4 sm:mb-5 mx-auto"
+                  className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl mb-5 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300"
                   style={{ background: "linear-gradient(135deg, #25A244, #4DC76A)" }}
                 >
-                  <r.icon size={22} className="text-white" />
+                  <r.icon size={26} className="text-white" />
                 </div>
                 <h3
-                  className="font-bold text-[#0f172a] mb-2 text-sm sm:text-base"
+                  className="font-bold text-[#0f172a] mb-2 text-base sm:text-lg"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   {r.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">{r.desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{r.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -611,18 +719,24 @@ export default function HomePage() {
       {/* ══════════════════════════════════════
           8. CLIENTI
       ══════════════════════════════════════ */}
-      <section className="py-12 sm:py-20 bg-[#f8fafc]">
+      <section className="py-14 sm:py-24 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block"
+            >
               Chi si fida di noi
-            </span>
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f172a]"
-              style={{ fontFamily: "var(--font-poppins)" }}
+            </motion.span>
+            <WipeTitle
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a]"
+              style={{ fontFamily: "var(--font-poppins)" } as React.CSSProperties}
             >
               I nostri clienti
-            </h2>
+            </WipeTitle>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
