@@ -825,7 +825,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://www.google.com/maps/search/MIP+Moderna+Impresa+di+Pulizia+Napoli"
+                href="https://www.google.com/search?sca_esv=853b2faddd699812&sxsrf=ANbL-n47CghRr3Ti_OSJhVQEfAypjrjiBw:1778786968032&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOR0AmD7hFr434Alxi092MFoifXVab_XpFHrP-AQBORmZSqxgKWDTtqEm1Ar65BD2YyRfPVhvp4GtwqzHnU9sDKACR6xE&q=M.I.P.+Recensioni&sa=X&ved=2ahUKEwin8PDqwbmUAxVDQkEAHUzgJzAQ0bkNegQIJRAH&cshid=1778786996536386&biw=1440&bih=671&dpr=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 min-h-[48px]"
@@ -840,7 +840,7 @@ export default function HomePage() {
                 Leggi le recensioni
               </a>
               <a
-                href="https://www.google.com/search?q=MIP+Moderna+Impresa+di+Pulizia+Napoli"
+                href="https://www.google.com/search?sca_esv=853b2faddd699812&sxsrf=ANbL-n47CghRr3Ti_OSJhVQEfAypjrjiBw:1778786968032&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOR0AmD7hFr434Alxi092MFoifXVab_XpFHrP-AQBORmZSqxgKWDTtqEm1Ar65BD2YyRfPVhvp4GtwqzHnU9sDKACR6xE&q=M.I.P.+Recensioni&sa=X&ved=2ahUKEwin8PDqwbmUAxVDQkEAHUzgJzAQ0bkNegQIJRAH&cshid=1778786996536386&biw=1440&bih=671&dpr=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm border-2 hover:scale-105 active:scale-95 transition-all duration-200 min-h-[48px]"
