@@ -73,7 +73,7 @@ export default function RootLayout({
             alt=""
             width={1200}
             height={1199}
-            className="w-[90vw] sm:w-[75vw] max-w-5xl opacity-[0.07]"
+            className="w-[90vw] sm:w-[75vw] max-w-5xl opacity-[0.05]"
           />
         </div>
         <FloatingBubbles />
