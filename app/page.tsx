@@ -50,7 +50,7 @@ export default function HomePage() {
       <section
         className="relative min-h-[92svh] sm:min-h-[88vh] flex items-center justify-center text-white overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #003d7a 0%, #0055A4 55%, #00AEEF 100%)",
+          background: "linear-gradient(135deg, #1a7a32 0%, #25A244 60%, #4DC76A 100%)",
         }}
       >
         {/* foto di sfondo */}
@@ -84,18 +84,33 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-[2rem] sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-5 sm:mb-6 drop-shadow-sm"
+            className="text-[2rem] sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] mb-4 sm:mb-5 drop-shadow-sm"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             Pulizia professionale{" "}
-            <span style={{ color: "#9de6ff" }}>che fa la differenza</span>
+            <span style={{ color: "#b8f0c8" }}>che fa la differenza</span>
           </motion.h1>
+
+          {/* Badge certificazioni */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="flex flex-wrap justify-center gap-2 mb-5 sm:mb-6"
+          >
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/20 text-white border border-white/30">
+              ✓ Certificato HACCP
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/20 text-white border border-white/30">
+              ✓ Prodotti Ecologici
+            </span>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base sm:text-xl text-blue-100 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed"
+            className="text-base sm:text-xl text-green-100 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed"
           >
             Esperienza, professionalità e innovazione al servizio di condomini, uffici,
             industrie, yacht e molto altro — da Napoli a tutta Italia.
@@ -110,7 +125,7 @@ export default function HomePage() {
             <Link
               href="/contatti"
               className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-xl font-bold text-base text-white shadow-lg transition-all duration-200 active:scale-95 hover:scale-105 hover:shadow-xl"
-              style={{ backgroundColor: "#00AEEF" }}
+              style={{ backgroundColor: "#4DC76A" }}
             >
               Richiedi Preventivo
               <ArrowRight size={18} />
@@ -121,6 +136,20 @@ export default function HomePage() {
             >
               Scopri i Servizi
             </Link>
+          </motion.div>
+
+          {/* Strip statistiche */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-8 sm:mt-10 flex items-center justify-center gap-3 sm:gap-5 flex-wrap text-sm text-green-100 font-medium"
+          >
+            <span>25+ Anni di esperienza</span>
+            <span className="text-white/40">|</span>
+            <span>500+ Clienti soddisfatti</span>
+            <span className="text-white/40">|</span>
+            <span>11 Servizi specializzati</span>
           </motion.div>
         </div>
 
@@ -142,7 +171,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
                 Chi siamo
               </span>
               <h2
@@ -150,7 +179,7 @@ export default function HomePage() {
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 La pulizia è il nostro mestiere,{" "}
-                <span className="text-[#0055A4]">la cura è la nostra passione</span>
+                <span className="text-[#25A244]">la cura è la nostra passione</span>
               </h2>
               <p className="text-gray-600 leading-relaxed mb-5 text-sm sm:text-base">
                 M.I.P. Moderna Impresa di Pulizia s.r.l. è un&apos;azienda napoletana con una lunga tradizione nel settore
@@ -166,11 +195,17 @@ export default function HomePage() {
                   "Rispetto degli standard HACCP e sanitari",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-gray-700">
-                    <CheckCircle2 size={18} className="text-[#00AEEF] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-[#4DC76A] shrink-0 mt-0.5" />
                     {item}
                   </li>
                 ))}
               </ul>
+              {/* Badge certificazioni */}
+              <div className="flex gap-3 mt-4 flex-wrap">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">✓ Certificato HACCP</span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">✓ Prodotti Ecologici</span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-green-100 text-green-800">✓ Personale Assicurato</span>
+              </div>
             </motion.div>
 
             <motion.div
@@ -188,7 +223,7 @@ export default function HomePage() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#003d7a]/85 via-[#003d7a]/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1a7a32]/85 via-[#1a7a32]/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 grid grid-cols-4 divide-x divide-white/20">
                 {[
                   { value: "25+", label: "Anni" },
@@ -200,7 +235,7 @@ export default function HomePage() {
                     <p className="text-lg sm:text-2xl font-extrabold leading-none" style={{ fontFamily: "var(--font-poppins)" }}>
                       {stat.value}
                     </p>
-                    <p className="text-[10px] sm:text-xs text-blue-200 mt-1 font-medium">{stat.label}</p>
+                    <p className="text-[10px] sm:text-xs text-green-200 mt-1 font-medium">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -213,7 +248,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
               I nostri servizi
             </span>
             <h2
@@ -237,9 +272,9 @@ export default function HomePage() {
               >
                 <div
                   className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl mb-4"
-                  style={{ backgroundColor: "#e6f0fa" }}
+                  style={{ backgroundColor: "#e8f5ed" }}
                 >
-                  <s.icon size={22} style={{ color: "#0055A4" }} />
+                  <s.icon size={22} style={{ color: "#25A244" }} />
                 </div>
                 <h3
                   className="font-bold text-[#0f172a] mb-2 text-sm sm:text-base"
@@ -255,8 +290,8 @@ export default function HomePage() {
           <div className="text-center mt-8 sm:mt-10">
             <Link
               href="/servizi"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm border-2 transition-all duration-200 hover:bg-[#0055A4] hover:text-white hover:border-[#0055A4] active:scale-95"
-              style={{ color: "#0055A4", borderColor: "#0055A4" }}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm border-2 transition-all duration-200 hover:bg-[#25A244] hover:text-white hover:border-[#25A244] active:scale-95"
+              style={{ color: "#25A244", borderColor: "#25A244" }}
             >
               Vedi tutti i servizi
               <ArrowRight size={16} />
@@ -269,7 +304,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
               I nostri punti di forza
             </span>
             <h2
@@ -293,7 +328,7 @@ export default function HomePage() {
               >
                 <div
                   className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl mb-4 sm:mb-5 mx-auto"
-                  style={{ background: "linear-gradient(135deg, #0055A4, #00AEEF)" }}
+                  style={{ background: "linear-gradient(135deg, #25A244, #4DC76A)" }}
                 >
                   <r.icon size={22} className="text-white" />
                 </div>
@@ -314,7 +349,7 @@ export default function HomePage() {
       <section className="py-14 sm:py-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
               Chi si fida di noi
             </span>
             <h2
@@ -374,7 +409,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#00AEEF] mb-3 block">
+            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#4DC76A] mb-3 block">
               La nostra reputazione
             </span>
             <h2
@@ -393,7 +428,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
-                style={{ backgroundColor: "#0055A4" }}
+                style={{ backgroundColor: "#25A244" }}
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -408,7 +443,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm border-2 hover:scale-105 active:scale-95 transition-all duration-200"
-                style={{ color: "#0055A4", borderColor: "#0055A4" }}
+                style={{ color: "#25A244", borderColor: "#25A244" }}
               >
                 ⭐ Lascia una recensione
               </a>
@@ -421,7 +456,7 @@ export default function HomePage() {
       <section
         className="py-14 sm:py-20 text-white text-center"
         style={{
-          background: "linear-gradient(135deg, #0055A4 0%, #00AEEF 100%)",
+          background: "linear-gradient(135deg, #25A244 0%, #4DC76A 100%)",
         }}
       >
         <div className="max-w-2xl mx-auto px-5 sm:px-6">
@@ -440,7 +475,7 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-blue-100 mb-7 sm:mb-8 text-sm sm:text-lg leading-relaxed"
+            className="text-green-100 mb-7 sm:mb-8 text-sm sm:text-lg leading-relaxed"
           >
             Richiedi un preventivo gratuito e senza impegno. Il nostro team ti risponderà
             entro 24 ore con una soluzione personalizzata.
@@ -454,7 +489,7 @@ export default function HomePage() {
           >
             <Link
               href="/contatti"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white text-[#0055A4] shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-white text-[#25A244] shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
             >
               Contattaci ora
               <ArrowRight size={18} />

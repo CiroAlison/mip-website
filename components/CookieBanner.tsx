@@ -34,10 +34,10 @@ export default function CookieBanner() {
           className="fixed bottom-0 left-0 right-0 z-[60] p-4 sm:p-5"
         >
           <div className="max-w-3xl mx-auto bg-[#0f172a] text-white rounded-2xl shadow-2xl px-5 py-4 sm:px-6 sm:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Cookie size={22} className="text-[#00AEEF] shrink-0 mt-0.5 sm:mt-0" />
+            <Cookie size={22} className="text-[#4DC76A] shrink-0 mt-0.5 sm:mt-0" />
             <p className="text-sm text-gray-300 leading-relaxed flex-1">
               Utilizziamo cookie tecnici per il corretto funzionamento del sito.{" "}
-              <Link href="/privacy" className="text-[#00AEEF] underline hover:text-white transition-colors">
+              <Link href="/privacy" className="text-[#4DC76A] underline hover:text-white transition-colors">
                 Leggi la Privacy Policy
               </Link>
               .
@@ -52,7 +52,7 @@ export default function CookieBanner() {
               <button
                 onClick={accept}
                 className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90 active:scale-95"
-                style={{ backgroundColor: "#0055A4" }}
+                style={{ backgroundColor: "#25A244" }}
               >
                 Accetta
               </button>

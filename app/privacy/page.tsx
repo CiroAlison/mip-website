@@ -25,8 +25,9 @@ export default function PrivacyPage() {
             <p>
               <strong>M.I.P. Moderna Impresa di Pulizia s.r.l.</strong><br />
               Via G. Porzio, 4 — C.D.N. Is. E/3, 80143 Napoli (NA)<br />
-              Email: <a href="mailto:info@mipimpresadipulizie.it" className="text-[#0055A4] hover:underline">info@mipimpresadipulizie.it</a><br />
-              Tel: <a href="tel:800653110" className="text-[#0055A4] hover:underline">800 65 31 10</a>
+              P.IVA: 06547811213<br />
+              Email: <a href="mailto:info@mipimpresadipulizie.it" className="text-[#25A244] hover:underline">info@mipimpresadipulizie.it</a><br />
+              Tel: <a href="tel:800653110" className="text-[#25A244] hover:underline">800 65 31 10</a>
             </p>
           </div>
 
@@ -74,7 +75,7 @@ export default function PrivacyPage() {
               <li>Proporre reclamo al Garante (www.garanteprivacy.it)</li>
             </ul>
             <p className="mt-2">
-              Per esercitare i propri diritti: <a href="mailto:info@mipimpresadipulizie.it" className="text-[#0055A4] hover:underline">info@mipimpresadipulizie.it</a>
+              Per esercitare i propri diritti: <a href="mailto:info@mipimpresadipulizie.it" className="text-[#25A244] hover:underline">info@mipimpresadipulizie.it</a>
             </p>
           </div>
 
@@ -90,7 +91,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-gray-100">
-          <Link href="/" className="text-sm text-[#0055A4] hover:underline">
+          <Link href="/" className="text-sm text-[#25A244] hover:underline">
             ← Torna alla Home
           </Link>
         </div>

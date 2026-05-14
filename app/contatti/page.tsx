@@ -22,7 +22,7 @@ const serviceOptions = [
 type Status = "idle" | "loading" | "success" | "error";
 
 const inputCls =
-  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#0055A4] focus:ring-2 focus:ring-[#0055A4]/20 transition-all";
+  "w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 outline-none focus:border-[#25A244] focus:ring-2 focus:ring-[#25A244]/20 transition-all";
 
 export default function ContattiPage() {
   const [form, setForm] = useState({
@@ -79,7 +79,7 @@ export default function ContattiPage() {
       <section
         className="py-14 sm:py-20 text-white text-center"
         style={{
-          background: "linear-gradient(135deg, #003d7a 0%, #0055A4 60%, #00AEEF 100%)",
+          background: "linear-gradient(135deg, #1a7a32 0%, #25A244 60%, #4DC76A 100%)",
         }}
       >
         <div className="max-w-2xl mx-auto px-5 sm:px-6">
@@ -103,7 +103,7 @@ export default function ContattiPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-blue-100 text-base sm:text-lg leading-relaxed"
+            className="text-green-100 text-base sm:text-lg leading-relaxed"
           >
             Compila il modulo per ricevere un preventivo gratuito. Ti risponderemo entro 24 ore.
           </motion.p>
@@ -132,8 +132,8 @@ export default function ContattiPage() {
 
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e6f0fa" }}>
-                      <MapPin size={15} style={{ color: "#0055A4" }} />
+                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e8f5ed" }}>
+                      <MapPin size={15} style={{ color: "#25A244" }} />
                     </span>
                     <div>
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Sede</p>
@@ -144,24 +144,20 @@ export default function ContattiPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e6f0fa" }}>
-                      <Phone size={15} style={{ color: "#0055A4" }} />
+                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e8f5ed" }}>
+                      <Phone size={15} style={{ color: "#25A244" }} />
                     </span>
                     <div>
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Numero Verde</p>
-                      <a href="tel:800653110" className="text-sm font-semibold text-[#0055A4] hover:underline">
+                      <a href="tel:800653110" className="text-sm font-semibold text-[#25A244] hover:underline">
                         800 65 31 10
                       </a>
                       <span className="ml-2 text-[10px] bg-green-100 text-green-700 font-semibold px-1.5 py-0.5 rounded-full">gratuito</span>
-                      <br />
-                      <a href="tel:0813625750" className="text-sm text-gray-500 hover:underline">
-                        081 362 5750
-                      </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e6f0fa" }}>
-                      <MessageCircle size={15} style={{ color: "#0055A4" }} />
+                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e8f5ed" }}>
+                      <MessageCircle size={15} style={{ color: "#25A244" }} />
                     </span>
                     <div>
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">WhatsApp / Info</p>
@@ -169,15 +165,15 @@ export default function ContattiPage() {
                         href="https://wa.me/393347064060"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold text-[#0055A4] hover:underline"
+                        className="text-sm font-semibold text-[#25A244] hover:underline"
                       >
                         334 706 4060
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e6f0fa" }}>
-                      <Clock size={15} style={{ color: "#0055A4" }} />
+                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e8f5ed" }}>
+                      <Clock size={15} style={{ color: "#25A244" }} />
                     </span>
                     <div>
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Orari</p>
@@ -185,14 +181,14 @@ export default function ContattiPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e6f0fa" }}>
-                      <Mail size={15} style={{ color: "#0055A4" }} />
+                    <span className="mt-0.5 p-2 rounded-lg shrink-0" style={{ backgroundColor: "#e8f5ed" }}>
+                      <Mail size={15} style={{ color: "#25A244" }} />
                     </span>
                     <div>
                       <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400 mb-0.5">Email</p>
                       <a
                         href="mailto:info@mipimpresadipulizie.it"
-                        className="text-sm font-semibold text-[#0055A4] hover:underline break-all"
+                        className="text-sm font-semibold text-[#25A244] hover:underline break-all"
                       >
                         info@mipimpresadipulizie.it
                       </a>
@@ -205,14 +201,14 @@ export default function ContattiPage() {
                   <a
                     href="tel:800653110"
                     className="flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-bold text-white"
-                    style={{ backgroundColor: "#0055A4" }}
+                    style={{ backgroundColor: "#25A244" }}
                   >
                     <Phone size={14} /> 800 65 31 10
                   </a>
                   <a
                     href="https://wa.me/393347064060"
                     className="flex items-center justify-center gap-1.5 py-3 rounded-xl text-xs font-bold border-2"
-                    style={{ color: "#0055A4", borderColor: "#0055A4" }}
+                    style={{ color: "#25A244", borderColor: "#25A244" }}
                   >
                     <MessageCircle size={14} /> WhatsApp
                   </a>
@@ -259,7 +255,7 @@ export default function ContattiPage() {
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
-                    className="mt-2 text-sm font-semibold text-[#0055A4] hover:underline"
+                    className="mt-2 text-sm font-semibold text-[#25A244] hover:underline"
                   >
                     Invia un&apos;altra richiesta
                   </button>
@@ -365,7 +361,7 @@ export default function ContattiPage() {
                     type="submit"
                     disabled={status === "loading"}
                     className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold text-sm text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90 active:scale-[0.98]"
-                    style={{ backgroundColor: "#0055A4" }}
+                    style={{ backgroundColor: "#25A244" }}
                   >
                     {status === "loading" ? (
                       <>

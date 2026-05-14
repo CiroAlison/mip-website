@@ -8,7 +8,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 const faqs = [
   {
     q: "Come posso richiedere un preventivo?",
-    a: "Puoi richiedere un preventivo gratuito compilando il modulo nella pagina Contatti, chiamando al numero 081 362 5750 oppure scrivendo su WhatsApp al 334 706 4060. Ti risponderemo entro 24 ore.",
+    a: "Puoi richiedere un preventivo gratuito compilando il modulo nella pagina Contatti, chiamando al numero verde 800 65 31 10 oppure scrivendo su WhatsApp al 334 706 4060. Ti risponderemo entro 24 ore.",
   },
   {
     q: "Il preventivo è gratuito e senza impegno?",
@@ -66,7 +66,7 @@ export default function FaqPage() {
       <section
         className="py-14 sm:py-20 text-white text-center"
         style={{
-          background: "linear-gradient(135deg, #003d7a 0%, #0055A4 60%, #00AEEF 100%)",
+          background: "linear-gradient(135deg, #1a7a32 0%, #25A244 60%, #4DC76A 100%)",
         }}
       >
         <div className="max-w-2xl mx-auto px-5 sm:px-6">
@@ -90,7 +90,7 @@ export default function FaqPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-blue-100 text-base sm:text-lg leading-relaxed"
+            className="text-green-100 text-base sm:text-lg leading-relaxed"
           >
             Tutto quello che devi sapere sui nostri servizi di pulizia professionale.
           </motion.p>
@@ -123,7 +123,7 @@ export default function FaqPage() {
                   </span>
                   <ChevronDown
                     size={18}
-                    className="shrink-0 transition-transform duration-300 text-[#0055A4]"
+                    className="shrink-0 transition-transform duration-300 text-[#25A244]"
                     style={{ transform: open === i ? "rotate(180deg)" : "rotate(0deg)" }}
                   />
                 </button>
@@ -152,7 +152,7 @@ export default function FaqPage() {
       {/* CTA */}
       <section
         className="py-12 sm:py-16 text-white text-center"
-        style={{ background: "linear-gradient(135deg, #0055A4 0%, #00AEEF 100%)" }}
+        style={{ background: "linear-gradient(135deg, #25A244 0%, #4DC76A 100%)" }}
       >
         <div className="max-w-xl mx-auto px-5 sm:px-6">
           <h2
@@ -161,12 +161,12 @@ export default function FaqPage() {
           >
             Non hai trovato risposta?
           </h2>
-          <p className="text-blue-100 mb-7 text-sm sm:text-base leading-relaxed">
+          <p className="text-green-100 mb-7 text-sm sm:text-base leading-relaxed">
             Contattaci direttamente — saremo felici di rispondere a qualsiasi domanda.
           </p>
           <Link
             href="/contatti"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[#0055A4] bg-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[#25A244] bg-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
           >
             Contattaci ora
             <ArrowRight size={17} />

@@ -102,7 +102,7 @@ export default function ServiziPage() {
       <section
         className="py-14 sm:py-20 text-white text-center"
         style={{
-          background: "linear-gradient(135deg, #003d7a 0%, #0055A4 60%, #00AEEF 100%)",
+          background: "linear-gradient(135deg, #1a7a32 0%, #25A244 60%, #4DC76A 100%)",
         }}
       >
         <div className="max-w-3xl mx-auto px-5 sm:px-6">
@@ -126,7 +126,7 @@ export default function ServiziPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-blue-100 text-base sm:text-lg leading-relaxed"
+            className="text-green-100 text-base sm:text-lg leading-relaxed"
           >
             Dalla pulizia condominiale alla sanificazione di ambienti complessi —
             offriamo 11 servizi specializzati con standard di qualità elevati.
@@ -150,9 +150,9 @@ export default function ServiziPage() {
               >
                 <div
                   className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl mb-4 sm:mb-5"
-                  style={{ backgroundColor: "#e6f0fa" }}
+                  style={{ backgroundColor: "#e8f5ed" }}
                 >
-                  <s.icon size={22} style={{ color: "#0055A4" }} />
+                  <s.icon size={22} style={{ color: "#25A244" }} />
                 </div>
                 <h2
                   className="font-bold text-[#0f172a] mb-2 sm:mb-3 text-base sm:text-lg"
@@ -166,7 +166,7 @@ export default function ServiziPage() {
                     <span
                       key={tag}
                       className="text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-full"
-                      style={{ backgroundColor: "#e6f0fa", color: "#0055A4" }}
+                      style={{ backgroundColor: "#e8f5ed", color: "#25A244" }}
                     >
                       {tag}
                     </span>
@@ -181,7 +181,7 @@ export default function ServiziPage() {
       {/* CTA */}
       <section
         className="py-12 sm:py-16 text-white text-center"
-        style={{ background: "linear-gradient(135deg, #0055A4 0%, #00AEEF 100%)" }}
+        style={{ background: "linear-gradient(135deg, #25A244 0%, #4DC76A 100%)" }}
       >
         <div className="max-w-xl mx-auto px-5 sm:px-6">
           <h2
@@ -190,13 +190,13 @@ export default function ServiziPage() {
           >
             Non trovi quello che cerchi?
           </h2>
-          <p className="text-blue-100 mb-7 leading-relaxed text-sm sm:text-base">
+          <p className="text-green-100 mb-7 leading-relaxed text-sm sm:text-base">
             Contattaci: valutiamo ogni richiesta e troviamo la soluzione più adatta
             alle tue esigenze specifiche.
           </p>
           <Link
             href="/contatti"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[#0055A4] bg-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-[#25A244] bg-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
           >
             Richiedi un preventivo
             <ArrowRight size={17} />
