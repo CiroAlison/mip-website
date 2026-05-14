@@ -69,11 +69,11 @@ export default function RootLayout({
         {/* Watermark fisso — mix-blend-mode:multiply: visibile su bianco, invisibile su scuro */}
         <div className="fixed inset-0 z-[1] flex items-center justify-center pointer-events-none select-none" style={{ mixBlendMode: "multiply" }}>
           <Image
-            src="/logo-mip-navbar.png"
+            src="/logo-mip-transparent.png"
             alt=""
             width={1200}
-            height={676}
-            className="w-[90vw] sm:w-[75vw] max-w-5xl opacity-[0.09]"
+            height={1199}
+            className="w-[90vw] sm:w-[75vw] max-w-5xl opacity-[0.07]"
           />
         </div>
         <FloatingBubbles />
