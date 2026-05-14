@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -48,6 +48,15 @@ export const metadata: Metadata = {
       "Esperienza, professionalità e innovazione — da Napoli a tutta Italia.",
   },
   robots: { index: true, follow: true },
+  appleWebApp: { capable: true, statusBarStyle: "default" },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#25A244",
 };
 
 export default function RootLayout({

@@ -171,8 +171,8 @@ export default function HomePage() {
         ))}
 
         {/* ── Contenuto split: testo sx / foto dx ── */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-28 pb-20 sm:pt-36 sm:pb-24">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-24 pb-16 sm:pt-36 sm:pb-24">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
             {/* ── Colonna TESTO ── */}
             <div className="text-left">
@@ -194,7 +194,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] mb-6 drop-shadow-lg"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.08] mb-5 drop-shadow-lg"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 Ambienti<br />
@@ -218,7 +218,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
-                className="flex flex-col sm:flex-row gap-3 mb-10"
+                className="flex flex-col gap-3 mb-8 sm:flex-row sm:mb-10"
               >
                 <Link
                   href="/contatti"

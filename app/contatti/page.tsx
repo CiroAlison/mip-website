@@ -216,12 +216,12 @@ export default function ContattiPage() {
               </div>
 
               {/* Mappa */}
-              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100" style={{ aspectRatio: "16/9" }}>
                 <iframe
                   title="M.I.P. Moderna Impresa di Pulizia - mappa"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.6!2d14.2681!3d40.8722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b09b51e6a8d97%3A0x0!2sVia+G.+Porzio+4+Napoli!5e0!3m2!1sit!2sit!4v1"
                   width="100%"
-                  height="220"
+                  height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"

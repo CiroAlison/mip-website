@@ -61,7 +61,7 @@ export default function Navbar() {
               alt="M.I.P. Moderna Impresa di Pulizia"
               width={130}
               height={55}
-              className="object-contain max-h-12 sm:max-h-13 w-auto"
+              className="object-contain h-10 sm:h-12 w-auto"
               priority
             />
           </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-          className="md:hidden fixed inset-0 top-[72px] z-40 overflow-y-auto"
+          className="md:hidden fixed inset-0 top-[72px] z-40 overflow-y-auto pb-[env(safe-area-inset-bottom,16px)]"
           style={{ background: "linear-gradient(180deg, #fff 0%, #f8fdf9 100%)" }}
         >
           <nav className="flex flex-col px-5 pt-5 pb-8 gap-1 border-t-2 border-[#25A244]">

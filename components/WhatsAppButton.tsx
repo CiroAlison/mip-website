@@ -15,8 +15,8 @@ export default function WhatsAppButton() {
       transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-5 right-5 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-xl"
-      style={{ backgroundColor: "#25D366" }}
+      className="fixed bottom-6 right-5 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-xl sm:bottom-6 sm:right-6"
+      style={{ backgroundColor: "#25D366", marginBottom: "env(safe-area-inset-bottom, 0px)" }}
     >
       <MessageCircle size={28} className="text-white fill-white" />
       {/* pulse ring */}
