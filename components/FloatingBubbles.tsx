@@ -19,10 +19,10 @@ export default function FloatingBubbles() {
       const seed = i * 137.508;
       return {
         id: i,
-        size: 30 + (i % 6) * 18,             // 30, 48, 66, 84, 102, 120 px
-        left: ((seed * 3.7) % 88) + 6,        // 6%–94%
+        size: 30 + (i % 6) * 18,
+        left: ((seed * 3.7) % 88) + 6,
         delay: (i * 0.8) % 10,
-        duration: 9 + (i % 5) * 3,            // 9–21s
+        duration: 9 + (i % 5) * 3,
         wobble: (i % 2 === 0 ? 1 : -1) * (10 + (i % 4) * 8),
       };
     });
@@ -45,20 +45,29 @@ export default function FloatingBubbles() {
             left: `${b.left}%`,
             bottom: "-120px",
             borderRadius: "50%",
+            /*
+             * Gradiente con verde marcato nel corpo della bolla:
+             * - riflesso bianco in alto a sinistra → effetto sfera 3D
+             * - verde medio/scuro nel corpo → visibile su sfondi bianchi
+             * mix-blend-mode: multiply fa sì che su bianco il verde risalti,
+             * su sfondi verdi scuri la bolla si fonde diventando quasi trasparente.
+             */
             background: `radial-gradient(
               circle at 32% 28%,
-              rgba(255,255,255,0.65) 0%,
-              rgba(255,255,255,0.20) 20%,
-              rgba(160,230,180,0.10) 50%,
-              rgba(37,162,68,0.08) 75%,
+              rgba(255,255,255,0.82) 0%,
+              rgba(200,245,215,0.55) 18%,
+              rgba(100,200,140,0.40) 40%,
+              rgba(37,162,68,0.28) 65%,
+              rgba(20,120,50,0.12) 85%,
               transparent 100%
             )`,
-            border: `${Math.max(1, Math.round(b.size * 0.025))}px solid rgba(255,255,255,0.40)`,
+            border: `${Math.max(1, Math.round(b.size * 0.028))}px solid rgba(37,162,68,0.35)`,
             boxShadow: [
-              `inset -${Math.round(b.size * 0.15)}px -${Math.round(b.size * 0.15)}px ${Math.round(b.size * 0.3)}px rgba(255,255,255,0.18)`,
-              `inset ${Math.round(b.size * 0.08)}px ${Math.round(b.size * 0.08)}px ${Math.round(b.size * 0.15)}px rgba(37,162,68,0.07)`,
-              `0 4px ${Math.round(b.size * 0.5)}px rgba(37,162,68,0.06)`,
+              `inset -${Math.round(b.size * 0.14)}px -${Math.round(b.size * 0.14)}px ${Math.round(b.size * 0.28)}px rgba(255,255,255,0.22)`,
+              `inset ${Math.round(b.size * 0.07)}px ${Math.round(b.size * 0.07)}px ${Math.round(b.size * 0.14)}px rgba(37,162,68,0.12)`,
+              `0 4px ${Math.round(b.size * 0.45)}px rgba(37,162,68,0.10)`,
             ].join(", "),
+            mixBlendMode: "multiply",
             animation: `bubble-global ${b.duration}s ${b.delay}s ease-in infinite`,
             ["--bwx" as string]: `${b.wobble}px`,
           }}
@@ -67,12 +76,12 @@ export default function FloatingBubbles() {
 
       <style>{`
         @keyframes bubble-global {
-          0%   { transform: translateY(0px)    translateX(0px)                    scale(1);    opacity: 0; }
-          6%   { opacity: 0.50; }
-          30%  { transform: translateY(-28vh)  translateX(var(--bwx))             scale(1.04); opacity: 0.42; }
-          60%  { transform: translateY(-58vh)  translateX(0px)                    scale(0.96); opacity: 0.28; }
-          85%  { transform: translateY(-84vh)  translateX(calc(var(--bwx) * -0.5)) scale(0.88); opacity: 0.14; }
-          100% { transform: translateY(-106vh) translateX(0px)                    scale(0.6);  opacity: 0; }
+          0%   { transform: translateY(0px)    translateX(0px)                     scale(1);    opacity: 0; }
+          6%   { opacity: 0.70; }
+          30%  { transform: translateY(-28vh)  translateX(var(--bwx))              scale(1.04); opacity: 0.60; }
+          60%  { transform: translateY(-58vh)  translateX(0px)                     scale(0.96); opacity: 0.42; }
+          85%  { transform: translateY(-84vh)  translateX(calc(var(--bwx) * -0.5)) scale(0.88); opacity: 0.22; }
+          100% { transform: translateY(-106vh) translateX(0px)                     scale(0.6);  opacity: 0; }
         }
       `}</style>
     </div>
