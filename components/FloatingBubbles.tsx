@@ -77,10 +77,10 @@ export default function FloatingBubbles() {
       <style>{`
         @keyframes bubble-global {
           0%   { transform: translateY(0px)    translateX(0px)                     scale(1);    opacity: 0; }
-          6%   { opacity: 0.70; }
-          30%  { transform: translateY(-28vh)  translateX(var(--bwx))              scale(1.04); opacity: 0.60; }
-          60%  { transform: translateY(-58vh)  translateX(0px)                     scale(0.96); opacity: 0.42; }
-          85%  { transform: translateY(-84vh)  translateX(calc(var(--bwx) * -0.5)) scale(0.88); opacity: 0.22; }
+          6%   { opacity: 0.38; }
+          30%  { transform: translateY(-28vh)  translateX(var(--bwx))              scale(1.04); opacity: 0.32; }
+          60%  { transform: translateY(-58vh)  translateX(0px)                     scale(0.96); opacity: 0.22; }
+          85%  { transform: translateY(-84vh)  translateX(calc(var(--bwx) * -0.5)) scale(0.88); opacity: 0.10; }
           100% { transform: translateY(-106vh) translateX(0px)                     scale(0.6);  opacity: 0; }
         }
       `}</style>
