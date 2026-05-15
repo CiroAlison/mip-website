@@ -73,8 +73,7 @@ export default function RootLayout({
             alt=""
             width={1200}
             height={1199}
-            className="opacity-[0.10]"
-            style={{ width: "160vw", height: "160vw", objectFit: "contain", transform: "rotate(-30deg)" }}
+            className="opacity-[0.10] object-contain rotate-90 w-[220vw] h-[220vw] sm:w-[160vw] sm:h-[160vw] sm:rotate-[-30deg]"
           />
         </div>
         <FloatingBubbles />
