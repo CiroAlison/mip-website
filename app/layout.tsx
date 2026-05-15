@@ -67,13 +67,23 @@ export default function RootLayout({
     <html lang="it" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
       <body className="flex flex-col min-h-screen antialiased">
         {/* Watermark fisso — mix-blend-mode:multiply: visibile su bianco, invisibile su scuro */}
-        <div className="fixed inset-0 z-[1] flex items-center justify-center pointer-events-none select-none overflow-hidden" style={{ mixBlendMode: "multiply" }}>
-          <Image
+        <div
+          className="fixed inset-0 z-[1] flex items-center justify-center pointer-events-none select-none overflow-hidden"
+          style={{ mixBlendMode: "multiply" }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo-mip-transparent.png"
             alt=""
-            width={1200}
-            height={1199}
-            className="opacity-[0.10] object-contain rotate-[-90deg] w-[600vmax] h-[600vmax] sm:w-[250vmax] sm:h-[250vmax]"
+            className="opacity-[0.10]"
+            style={{
+              width: "clamp(600px, 180vmax, 9999px)",
+              height: "clamp(600px, 180vmax, 9999px)",
+              maxWidth: "none",
+              flexShrink: 0,
+              objectFit: "contain",
+              transform: "rotate(-90deg)",
+            }}
           />
         </div>
         <FloatingBubbles />
