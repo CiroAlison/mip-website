@@ -737,69 +737,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
-          8. CLIENTI
-      ══════════════════════════════════════ */}
-      <section className="py-14 sm:py-24 bg-[#f8fafc]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block"
-            >
-              Chi si fida di noi
-            </motion.span>
-            <WipeTitle
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a]"
-              style={{ fontFamily: "var(--font-poppins)" } as React.CSSProperties}
-            >
-              I nostri clienti
-            </WipeTitle>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {[
-              "Schiavo & C. s.p.a.",
-              "Zucchetti",
-              "Genoa Sea Brokers",
-              "Sara Assicurazioni",
-              "Palumbo",
-              "HiSkill",
-              "Nettuno Solutions",
-              "AMESCI",
-              "Essematica",
-              "Eutile",
-              "TMF Group",
-              "Studio Scarano",
-              "Quick Parking",
-              "Si.Ge.A. Costruzioni",
-              "X Percorsi",
-              "SG Sicura Gestioni",
-            ].map((name, i) => (
-              <motion.div
-                key={name}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                variants={fadeUp}
-                className="bg-white rounded-2xl px-4 py-5 sm:py-6 shadow-sm border border-gray-100 flex items-center justify-center text-center"
-              >
-                <span
-                  className="text-xs sm:text-sm font-semibold text-gray-600 leading-snug"
-                  style={{ fontFamily: "var(--font-poppins)" }}
-                >
-                  {name}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
           9. RECENSIONI GOOGLE CTA
       ══════════════════════════════════════ */}
       <section className="py-12 sm:py-20 bg-white">
