@@ -87,11 +87,11 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
    CAROSELLO IMPEGNO
 ───────────────────────────────────────────── */
 const impegnoPhotos = [
-  { src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80", alt: "Operatore professionale con mocio" },
-  { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80", alt: "Ufficio pulito e luminoso" },
-  { src: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1200&q=80", alt: "Sanificazione professionale" },
-  { src: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=1200&q=80", alt: "Attrezzature e prodotti M.I.P." },
-  { src: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80", alt: "Palazzo e atrio curato" },
+  { src: "https://images.unsplash.com/photo-NqjGtccht2M?auto=format&fit=crop&w=1200&q=80", alt: "Secchio e prodotti professionali" },
+  { src: "https://images.unsplash.com/photo-zWWhupBREII?auto=format&fit=crop&w=1200&q=80", alt: "Ufficio pulito e luminoso" },
+  { src: "https://images.unsplash.com/photo-AZC8LZBSnuU?auto=format&fit=crop&w=1200&q=80", alt: "Corridoio con pareti in vetro curato" },
+  { src: "https://images.unsplash.com/photo-se0AL0ioWyI?auto=format&fit=crop&w=1200&q=80", alt: "Sanificazione professionale con guanti" },
+  { src: "https://images.unsplash.com/photo-QJRBApyid4I?auto=format&fit=crop&w=1200&q=80", alt: "Operatore con prodotti e guanti" },
 ];
 
 function ImpegnoCarousel() {

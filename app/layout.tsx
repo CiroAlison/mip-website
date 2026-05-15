@@ -75,10 +75,8 @@ export default function RootLayout({
           <img
             src="/logo-mip-transparent.png"
             alt=""
-            className="opacity-[0.10]"
+            className="opacity-[0.10] w-[120vmax] h-[120vmax] sm:w-[120vh] sm:h-[120vh]"
             style={{
-              width: "120vmax",
-              height: "120vmax",
               maxWidth: "none",
               flexShrink: 0,
               objectFit: "contain",
