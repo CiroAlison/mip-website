@@ -77,8 +77,8 @@ export default function RootLayout({
             alt=""
             className="opacity-[0.10]"
             style={{
-              width: "100%",
-              height: "100%",
+              width: "120vmax",
+              height: "120vmax",
               maxWidth: "none",
               flexShrink: 0,
               objectFit: "contain",

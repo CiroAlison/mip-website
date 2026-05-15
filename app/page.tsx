@@ -21,7 +21,7 @@ import {
   ClipboardList,
   Wrench,
 } from "lucide-react";
-import { motion, useInView, type Variants } from "framer-motion";
+import { motion, AnimatePresence, useInView, type Variants } from "framer-motion";
 
 /* ─────────────────────────────────────────────
    DATA
@@ -81,6 +81,65 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   }, [inView, target]);
 
   return <span ref={ref}>{count}{suffix}</span>;
+}
+
+/* ─────────────────────────────────────────────
+   CAROSELLO IMPEGNO
+───────────────────────────────────────────── */
+const impegnoPhotos = [
+  { src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80", alt: "Operatore professionale con mocio" },
+  { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80", alt: "Ufficio pulito e luminoso" },
+  { src: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1200&q=80", alt: "Sanificazione professionale" },
+  { src: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=1200&q=80", alt: "Attrezzature e prodotti M.I.P." },
+  { src: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80", alt: "Palazzo e atrio curato" },
+];
+
+function ImpegnoCarousel() {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % impegnoPhotos.length), 3500);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={impegnoPhotos[idx].src}
+            alt={impegnoPhotos[idx].alt}
+            fill
+            className="object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+      {/* Dots */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+        {impegnoPhotos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIdx(i)}
+            className="rounded-full transition-all duration-300"
+            style={{
+              width: i === idx ? 24 : 8,
+              height: 8,
+              backgroundColor: i === idx ? "#fff" : "rgba(255,255,255,0.5)",
+            }}
+            aria-label={`Foto ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 /* ─────────────────────────────────────────────
@@ -788,15 +847,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
               className="relative"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <Image
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80"
-                  alt="Operatori M.I.P. al lavoro in un ufficio"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
+              <ImpegnoCarousel />
               {/* Badge sovrapposto */}
               <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 border border-gray-100">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "#e8f5ec" }}>
