@@ -73,7 +73,7 @@ export default function RootLayout({
             alt=""
             width={1200}
             height={1199}
-            className="opacity-[0.10] object-contain rotate-[-90deg] w-[250vmax] h-[250vmax]"
+            className="opacity-[0.10] object-contain rotate-[-90deg] w-[400vmax] h-[400vmax] sm:w-[250vmax] sm:h-[250vmax]"
           />
         </div>
         <FloatingBubbles />

@@ -790,8 +790,8 @@ export default function HomePage() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=1200&q=80"
-                  alt="Operatori M.I.P. al lavoro"
+                  src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80"
+                  alt="Ambiente pulito e curato da M.I.P."
                   fill
                   className="object-cover"
                 />
