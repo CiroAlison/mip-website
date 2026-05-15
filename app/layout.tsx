@@ -73,7 +73,7 @@ export default function RootLayout({
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo-mip-transparent.png"
+            src="/logo-mip-navbar.png"
             alt=""
             className="opacity-[0.10] w-[120vmax] h-[120vmax] sm:w-[120vh] sm:h-[120vh]"
             style={{

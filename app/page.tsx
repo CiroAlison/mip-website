@@ -87,11 +87,11 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
    CAROSELLO IMPEGNO
 ───────────────────────────────────────────── */
 const impegnoPhotos = [
-  { src: "https://images.unsplash.com/photo-NqjGtccht2M?auto=format&fit=crop&w=1200&q=80", alt: "Secchio e prodotti professionali" },
-  { src: "https://images.unsplash.com/photo-zWWhupBREII?auto=format&fit=crop&w=1200&q=80", alt: "Ufficio pulito e luminoso" },
-  { src: "https://images.unsplash.com/photo-AZC8LZBSnuU?auto=format&fit=crop&w=1200&q=80", alt: "Corridoio con pareti in vetro curato" },
-  { src: "https://images.unsplash.com/photo-se0AL0ioWyI?auto=format&fit=crop&w=1200&q=80", alt: "Sanificazione professionale con guanti" },
-  { src: "https://images.unsplash.com/photo-QJRBApyid4I?auto=format&fit=crop&w=1200&q=80", alt: "Operatore con prodotti e guanti" },
+  { src: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80", alt: "Operatore professionale al lavoro" },
+  { src: "https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=1200&q=80", alt: "Prodotti e attrezzature professionali" },
+  { src: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1200&q=80", alt: "Sanificazione professionale" },
+  { src: "https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?auto=format&fit=crop&w=1200&q=80", alt: "Secchio e prodotti per la pulizia" },
+  { src: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=1200&q=80", alt: "Ambiente pulito e curato" },
 ];
 
 function ImpegnoCarousel() {
