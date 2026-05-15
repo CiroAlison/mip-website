@@ -737,6 +737,83 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════
+          8. IL NOSTRO IMPEGNO
+      ══════════════════════════════════════ */}
+      <section className="py-14 sm:py-24 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* Testo */}
+            <motion.div
+              initial={{ opacity: 0, x: -32 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#25A244] mb-4 block">
+                Chi siamo
+              </span>
+              <WipeTitle
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a] mb-6"
+                style={{ fontFamily: "var(--font-poppins)" } as React.CSSProperties}
+              >
+                Oltre 25 anni al servizio della pulizia professionale
+              </WipeTitle>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
+                M.I.P. nasce a Napoli con un obiettivo chiaro: portare standard industriali di igiene in ogni ambiente, dal condominio più piccolo al cantiere navale più grande. In oltre 25 anni abbiamo costruito un metodo di lavoro fondato su formazione continua, prodotti certificati e rispetto assoluto dei tempi concordati.
+              </p>
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+                Ogni intervento è un atto di cura verso le persone che vivono e lavorano negli spazi che trattiamo. Non puliamo solo superfici — garantiamo ambienti sani, sicuri e accoglienti.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Team certificato e assicurato",
+                  "Prodotti professionali omologati CE",
+                  "Interventi programmati o su chiamata urgente",
+                  "Rendicontazione e reportistica inclusa",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-gray-700 font-medium">
+                    <CheckCircle2 size={20} className="text-[#25A244] shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Immagine */}
+            <motion.div
+              initial={{ opacity: 0, x: 32 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+                <Image
+                  src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=1200&q=80"
+                  alt="Operatori M.I.P. al lavoro"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
+              {/* Badge sovrapposto */}
+              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 border border-gray-100">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "#e8f5ec" }}>
+                  <ShieldCheck size={24} className="text-[#25A244]" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 font-medium">Qualità certificata</p>
+                  <p className="text-sm font-bold text-[#0f172a]">Standard HACCP & ISO</p>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
           9. RECENSIONI GOOGLE CTA
       ══════════════════════════════════════ */}
       <section className="py-12 sm:py-20 bg-white">
